@@ -20,9 +20,9 @@ For a final project in Northwestern University's ME 495: Embedded Systems in Rob
 #### Example Game
 
 <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
-    <video src="https://lbos7.github.io/media/poolinator.mp4" controls style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
+    <video src="https://lbos7.github.io/media/poolinator.mp4"></video>
 </div>
-
+<br>
 <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
-    <video src="https://lbos7.github.io/media/poolinator_rviz.webm" controls style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
+    <video src="https://lbos7.github.io/media/poolinator_rviz.webm"></video>
 </div>
