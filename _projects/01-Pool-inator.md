@@ -10,7 +10,7 @@ This goal of this project was to use the Franka Emika Panda 7-DoF arm to play a 
 <br>
 
 ## Group Members
-This project was completed in a group consisting of An Nguyen, Caroline Terryn, Catherine Maglione, Joeseph Blom, and myself
+An Nguyen, Caroline Terryn, Catherine Maglione, Joseph Blom, Logan Boswell
 <br>
 
 ## Overview
@@ -18,8 +18,7 @@ For a final project in Northwestern University's ME 495: Embedded Systems in Rob
 <br>
 
 ### Videos
-<center>
-    <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
-        <video src="https://lbos7.github.io/media/poolinator.mp4" controls style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
-    </div>
-</center>
+
+<div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
+    <video src="https://lbos7.github.io/media/poolinator.mp4" controls style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
+</div>
