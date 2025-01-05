@@ -7,16 +7,16 @@ weight: 3
 
 # **About Me**
 <div style="flex: 1; text-align: left;">
-    <img src="{{ site.url }}{{ site.baseurl }}/media/picture.jpg" width="300"/>
+    <img src="{{ site.url }}{{ site.baseurl }}/media/picture.jpg" width="425"/>
 </div>
 Hi I am **{{ site.author.name }}** :wave:,<br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+I am a graduate student at Northwestern University pursuing a Master of Science in Robotics. I graduated from the Georgia Institute of Technology in May 2024 with a BS in Mechanical Engineering with a concentration in automation and robotics.
 
-<div class="row">
+<!-- <div class="row">
 {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
 {% include about/skills.html title="Other Skills" source=site.data.other-skills %}
 </div>
 
 <div class="row">
 {% include about/timeline.html %}
-</div>
+</div> -->
