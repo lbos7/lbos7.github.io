@@ -10,9 +10,10 @@ This project is a simulation of a 6 DoF system modeled using Lagrangian dynamics
 <br>
 
 ## Demo
-<div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
+<!-- <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
     <video src="https://lbos7.github.io/media/jackbox.mp4" controls style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
-</div>
+</div> -->
+<center><iframe width="567" height="504" src="https://www.youtube.com/watch?v=W0dDw8HSiHI&ab_channel=LoganBoswell" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center>
 <br>
 
 ## Setup
