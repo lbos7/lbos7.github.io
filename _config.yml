@@ -1,5 +1,5 @@
 ### Site Settings ###
-title               : portfolYOU
+title               : Logan Boswell
 description         : >-
                       I turn coffee :coffee: into code,
                       use tabs over spaces
@@ -25,7 +25,7 @@ nav_exclude:                                            # The following paths ar
 ### Author Info ###
 author:
   name              : Logan Boswell
-  image             : https://i.imgur.com/uyDNQnn.jpg
+  image             : https://lbos7.github.io/media/picture.heic
 # behance           : your_username
 # dribbble          : your_username
   email             : loganstuartboswell@gmail.com
