@@ -18,11 +18,18 @@ Zachary Burkhardt, Logan Boswell
 
 ## Project Overview
 For a final project in the Georgia Institute of Technology's ME 4405: Introduction to Mechatronics, my group decided on building a differential-drive car that is able to follow a line or be controlled by a remote.
-<br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/propellerbeam_diagram.jpg"/></center>
-<br>
 
 ## System Overview
+To start this project, electronic components were selected and a preliminary CAD model was created. Some components of this model, such as the base, some mounts for different hardware, and the cover for the MyRIO needed to be made by the group through 3D printing or cutting with a waterjet. The model (with a few compenents omitted including screws and the wheels) is shown below.
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/ddcar_cad.jpg"/></center>
+<br>
+Once all of the necessary parts were made or had arrived, the car was assembled and all of the electronics were connected.
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/ddcar.jpg"/></center>
+<br>
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/ddcar_wiring.jpg"/></center>
 <br>
 
 #### Physical System
