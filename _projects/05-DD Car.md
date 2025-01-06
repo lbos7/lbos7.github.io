@@ -1,7 +1,7 @@
 ---
 name: Differential-Drive Car with two Operating Modes
 tools: [LabVIEW, PID Control, Mechatronics, Microcontrollers, SolidWorks, Rapid Prototyping]
-image: {{ site.url }}{{ site.baseurl }}/media/ddcar.gif
+image: https://lbos7.github.io/media/ddcar.gif
 description: Contsructed a differential-drive car capable of following a line or being controlled by a remote.
 ---
 
