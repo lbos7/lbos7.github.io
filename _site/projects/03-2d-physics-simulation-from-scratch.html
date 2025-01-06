@@ -85,12 +85,12 @@
 <h2 id="setup">Setup</h2>
 <p>The first steps taken in this project consisted of setting up transformation matrices between the world, jack, and box frames. These matrices are used to make the necessary calculations of easier. A diagram of the system with the transformation matrices can be seen below.</p>
 <div style="flex: 1; text-align: left;">
-    <img src="https://http://localhost:4000/media/jackbox.png" />
+    <img src="http://localhost:4000/media/jackbox.png" />
 </div>
 <p><br /></p>
 
 <h2 id="lagrangian-dynamics">Lagrangian Dynamics</h2>
-<center><img src="https://http://localhost:4000/media/forcedEL.jpg" /></center>
+<center><img src="http://localhost:4000/media/forcedEL.jpg" /></center>
 <p>The forced Euler-Lagrange equations (shown above) were used to calculate the instaneous accelerations of the bodies that are essential for simulating the system. The Lagrangian (L) can be calculated by finding the body velocities of the box and the jack, defining the inertial matrices, and calculating the kinetic energy and potential energy. In this simulation, external forces (Q_i in the equations above) are applied to Y-coordinate and psi-coordinates of the box to keep it around the same height throughout the simulation. Using the Lagrangian and external forces, the equation shown above can be calculated for each component of the configuration q. From these equations, the accelerations of the configuration are found, and the system is simulated using 4th-order Runge-Kutta integration over a 0.01 second timestep.
 <br /></p>
 
