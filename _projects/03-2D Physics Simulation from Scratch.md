@@ -21,4 +21,6 @@ The first steps taken in this project consisted of setting up transformation mat
 <br>
 
 ## Lagrangian Dynamics
-$$ \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q_i}} \right) - \frac{\partial L}{\partial q_i} = Q_i $$
+\[
+\frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q_i}} \right) - \frac{\partial L}{\partial q_i} = Q_i
+\]
