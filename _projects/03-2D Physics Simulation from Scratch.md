@@ -6,7 +6,7 @@ description: Simulation of a jack in a box with elastic impacts and external for
 ---
 
 # 2D Physics Simulation from Scratch
-This project is a simulation of a 6 DoF system modeled using Lagrangian dynamics. The system consists of a large "box" body with a small "jack" body inside of it where each body is free to translate in two directions and rotate about one axis.
+The goal of this project was to create a simulation of a 6 DoF system modeled using Lagrangian dynamics. The system consists of a large "box" body with a small "jack" body inside of it where each body is free to translate in two directions and rotate about one axis.
 <br>
 
 ## Demo
@@ -22,7 +22,7 @@ The first steps taken in this project consisted of setting up transformation mat
 
 ## Lagrangian Dynamics
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/forcedEL.jpg"/></center>
-The forced Euler-Lagrange equations (shown above) were used to calculate the instaneous accelerations of the bodies that are essential for simulating the system. The Lagrangian (L) can be calculated by finding the body velocities of the box and the jack, defining the inertial matrices, and calculating the kinetic energy and potential energy. In this simulation, external forces (Q_i in the equations above) are applied to Y-coordinate and psi-coordinates of the box to keep it around the same height throughout the simulation. Using the Lagrangian and external forces, the equation shown above can be calculated for each component of the configuration q. From these equations, the accelerations of the configuration are found, and the system is simulated using 4th-order Runge-Kutta integration over a 0.01 second timestep.
+The forced Euler-Lagrange equations (shown above) were used to calculate the instaneous accelerations of the bodies that are essential for simulating the system. The Lagrangian (L) can be calculated by finding the body velocities of the box and the jack, defining the inertial matrices, and calculating the kinetic energy and potential energy. In this simulation, external forces (Qi in the equations above) are applied to Y-coordinate and psi-coordinate of the box to keep it around the same height throughout the simulation. Using the Lagrangian and external forces, the equation shown above can be calculated for each component of the configuration q. From these equations, the accelerations of the configuration are found, and the system is simulated using 4th-order Runge-Kutta integration over a 0.01 second timestep.
 <br>
 
 ## Impacts
