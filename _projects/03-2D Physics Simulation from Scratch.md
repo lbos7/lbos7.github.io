@@ -10,15 +10,15 @@ This project is a simulation of a 6 DoF system modeled using Lagrangian dynamics
 <br>
 
 ## Demo
-<!-- <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
-    <video src="https://lbos7.github.io/media/jackbox.mp4" controls style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
-</div> -->
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/W0dDw8HSiHI?si=N4vRB3vX4GtSHSFd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 <br>
 
 ## Setup
-The first steps taken in this project consisted of setting up transformation matrices between the world, jack, and box frames. These matrices are used to make the necessary calculations of easier. A diagram of the system can be seen below
+The first steps taken in this project consisted of setting up transformation matrices between the world, jack, and box frames. These matrices are used to make the necessary calculations of easier. A diagram of the system with the transformation matrices can be seen below.
 <div style="flex: 1; text-align: left;">
     <img src="https://lbos7.github.io/media/jackbox.png"/>
 </div>
 <br>
+
+## Lagrangian Dynamics
+$$ \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q_i}} \right) - \frac{\partial L}{\partial q_i} = Q_i $$
