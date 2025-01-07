@@ -12,6 +12,11 @@ The goal of this project was to create a simulation of a 6 DoF system modeled us
 ## Demo
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/W0dDw8HSiHI?si=N4vRB3vX4GtSHSFd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 <br>
+<center>
+    <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
+        <video src="{{ site.url }}{{ site.baseurl }}/media/jackbox.mp4" controls style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
+    </div>
+</center>
 
 ## Setup
 The first steps taken in this project consisted of setting up transformation matrices between the world, jack, and box frames. These matrices are used to make the necessary calculations of easier. A diagram of the system with the transformation matrices can be seen below.

@@ -16,7 +16,7 @@ Zachary Burkhardt, Logan Boswell
 ## Demo
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/wliyiFiHKXM?si=El4xbFObbxSllT5N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 
-## Project Overview
+## Overview
 For a final project in the Georgia Institute of Technology's ME 4405: Introduction to Mechatronics, my group decided on building a differential-drive car that is able to follow a line or be controlled by a remote.
 
 ## System Overview
@@ -34,7 +34,7 @@ The electronic components of the car and how they are connected are shown in the
 <br>
 
 ## Control Logic
-When the car is powered on, it starts in line-following mode in which it only moves if a black line is detected by any element of the reflectance sensor array. Based on which elements of the reflectance sensor array detect the line, a PID controller adjusts the speeds of the motors in order to keep the car centered on the line. When a button on the side of the MyRIO is pressed, the car switches to remote-control mode where a joystick RC remote gives a direction for the car to move, that direction is compared to the current orientaion of the car determined using the magnetometer, and the same PID controller used for the line following mode is used to adjust the motor speeds.
+When the car is powered on, it starts in line-following mode in which it only moves if a black line is detected by any element of the reflectance sensor array. Based on which elements of the reflectance sensor array detect the line, a PID controller adjusts the speeds of the motors in order to keep the car centered on the line. When a button on the side of the MyRIO is pressed, the car switches to remote-control mode where a joystick RC remote sends 2 PWM signals based on its xy-position. These signals are sent through the PWM to analog converters shown in the wiring diagram, and these signals are used to determine the direction of the joystick. That direction is compared to the current orientaion of the car determined using the magnetometer, and the same PID controller used for the line following mode is used to adjust the motor speeds.
 
 ## My Focus
 In this project, I was in charge of designing and building the physical system, including selecting all of the necessary components. In additon to this, I wrote the main virtual instrument file for operating the car and subfile for integrating the RC remote.

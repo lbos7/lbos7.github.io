@@ -16,7 +16,7 @@ Alex Castrejon, Jun Yen Lim, Kasia Fadeeva, Logan Boswell
 ## Demo
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/OrUmdi8MH_U?si=J97v_IkzCE4vNLnD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 
-## Project Overview
+## Overview
 For a final project in the Georgia Institute of Technology's ME 4012: Control of Motion Systems, my group decided on building a propeller-driven balance beam and designing a control system to make it capable of balancing a metal ball in the center of the beam. A simplified diagram of the system is shown below.
 <br>
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/propellerbeam_diagram.jpg"/></center>
