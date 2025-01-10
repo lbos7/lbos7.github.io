@@ -11,18 +11,13 @@ The goal of this project was to implement concepts of robotic manipulation such 
 ## Demo
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/W-60ke0rfIs?si=hSfqu9TzXMuvUW30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 <br>
-<center>
-    <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
-        <video src="{{ site.url }}{{ site.baseurl }}/media/pickplace.mp4" controls style="position: absolute; top:0; left:0; width: 150%; height: 150%;"></video>
-    </div>
-</center>
-<br>
 
 ## Overview
-This project was divided into 3 main stages - youBot kinematics, end-effector reference trajectory generation, and controls.
+This project was divided into 3 main stages - youBot kinematics, end-effector reference trajectory generation, and controls. Once each stage was completed, a script was written to generate csv files with 13 elements in each line to run the simulation in CoppeliaSim.
 <br>
 
 ## youBot Kinematics
+
 <br>
 
 ## End-Effector Reference Trajectory Generation
