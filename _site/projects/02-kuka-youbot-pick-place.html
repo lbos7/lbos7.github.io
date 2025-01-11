@@ -75,26 +75,47 @@
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
   <h1 id="kuka-youbot-pick--place">KUKA youBot Pick &amp; Place</h1>
-<p>The goal of this project was to implement concepts of robotic manipulation such as screw theory, motion planning, trajectory generation, and control through simulation of a pick and place task using a KUKA youBot in CoppeliaSim.</p>
+<p>The goal of this project was to implement concepts of robotic manipulation such as screw theory, motion planning, trajectory generation, and control through simulation of a pick and place task using a KUKA youBot in CoppeliaSim. A KUKA youBot is mobile manipulator with an omnidirectional base and a 5R robot arm (shown below).
+<br /></p>
+<center><img src="http://localhost:4000/media/youBot.jpg" /></center>
+<p><br /></p>
 
 <h2 id="demo">Demo</h2>
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/W-60ke0rfIs?si=hSfqu9TzXMuvUW30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></center>
 <p><br /></p>
 
 <h2 id="overview">Overview</h2>
-<p>This project was divided into 3 main stages - youBot kinematics, end-effector reference trajectory generation, and controls. Once each stage was completed, a script was written to generate csv files with 13 elements in each line to run the simulation in CoppeliaSim. The 13 elements in the csv files repesent the following, in order: chassis orientation, chassis x-postion, chassis y-position, joint 1 angle, joint 2 angle, joint 3 angle, joint 4 angle, joint 5 angle, wheel 1 angle, wheel 2 angle, wheel 3 angle, wheel 4 angle, gripper state.
+<p>This project was divided into 3 main stages - youBot kinematics, end-effector reference trajectory generation, and controls. Each stage was associated with a corresponding function that were used to perform the simulation: NextState, TrajectoryGenerator, and FeedbackControl. NextState takes in the current robot configuration and calculates the new configuration after a .01s timestep using first-order Euler integration. TrajectoryGenerator creates an ideal trajectory for the end-effector in order to pick up the cube and drop it off in the correct place. FeedbackControl applies the kinematic task-space feedforward plus PI control law, which is shown below.
 <br /></p>
-
-<h2 id="youbot-kinematics">youBot Kinematics</h2>
-<p>In order to calculate the first 12 elements in each csv line, a function was written that took in the following inputs: 12-vector representing current robot configuration, 9-vector representing joint and wheel speeds, timestep, max speed of joints and wheels. Using these inputs, the new robot configuration after the timestep was determined. 
-<br /></p>
-
-<h2 id="end-effector-reference-trajectory-generation">End-Effector Reference Trajectory Generation</h2>
+<center><img src="http://localhost:4000/media/feedforwardlaw.jpg" /></center>
 <p><br /></p>
 
-<h2 id="controls">Controls</h2>
+<h2 id="results">Results</h2>
+<p>There were 3 cases used to test the controller and fine tune the associated gains. The 6-vector representing end effector error was plotted over time each of these case.
+<br /></p>
+
+<h5 id="overshoot">Overshoot</h5>
+<p>In this trial, the robot was still able to pick up the block and move it near the drop off location, but there was still a decent bit of error.
+<br /></p>
+<center><img src="http://localhost:4000/media/overshoot.jpg" /></center>
 <p><br /></p>
 
+<h5 id="best-run">Best Run</h5>
+<p>This trial was the best result I was able to obtain, and the corresponding video is at the top of this page
+<br /></p>
+<center><img src="http://localhost:4000/media/best.jpg" /></center>
+<p><br /></p>
+
+<h5 id="new-task">New Task</h5>
+<p>In this trial, the starting orientation of the block and the drop off position were both modified. The same controller from the best trial runn was used in this trial.
+<br /></p>
+<center><img src="http://localhost:4000/media/newTask.jpg" /></center>
+<p><br /></p>
+<center>
+    <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
+        <video src="http://localhost:4000/media/newTask.mp4" controls="" style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
+    </div>
+</center>
 
 </div>
   </main>

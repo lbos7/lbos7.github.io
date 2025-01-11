@@ -6,23 +6,44 @@ description: Simulation of a KUKA youBot performing a pick and place task.
 ---
 
 # KUKA youBot Pick & Place
-The goal of this project was to implement concepts of robotic manipulation such as screw theory, motion planning, trajectory generation, and control through simulation of a pick and place task using a KUKA youBot in CoppeliaSim.
+The goal of this project was to implement concepts of robotic manipulation such as screw theory, motion planning, trajectory generation, and control through simulation of a pick and place task using a KUKA youBot in CoppeliaSim. A KUKA youBot is mobile manipulator with an omnidirectional base and a 5R robot arm (shown below).
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/youBot.jpg"/></center>
+<br>
 
 ## Demo
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/W-60ke0rfIs?si=hSfqu9TzXMuvUW30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 <br>
 
 ## Overview
-This project was divided into 3 main stages - youBot kinematics, end-effector reference trajectory generation, and controls. Once each stage was completed, a script was written to generate csv files with 13 elements in each line to run the simulation in CoppeliaSim. The 13 elements in the csv files repesent the following, in order: chassis orientation, chassis x-postion, chassis y-position, joint 1 angle, joint 2 angle, joint 3 angle, joint 4 angle, joint 5 angle, wheel 1 angle, wheel 2 angle, wheel 3 angle, wheel 4 angle, gripper state.
+This project was divided into 3 main stages - youBot kinematics, end-effector reference trajectory generation, and controls. Each stage was associated with a corresponding function that were used to perform the simulation: NextState, TrajectoryGenerator, and FeedbackControl. NextState takes in the current robot configuration and calculates the new configuration after a .01s timestep using first-order Euler integration. TrajectoryGenerator creates an ideal trajectory for the end-effector in order to pick up the cube and drop it off in the correct place. FeedbackControl applies the kinematic task-space feedforward plus PI control law, which is shown below.
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/feedforwardlaw.jpg"/></center>
 <br>
 
-## youBot Kinematics
-In order to calculate the first 12 elements in each csv line, a function was written that took in the following inputs: 12-vector representing current robot configuration, 9-vector representing joint and wheel speeds, timestep, max speed of joints and wheels. Using these inputs, the new robot configuration after the timestep was determined. 
+## Results
+There were 3 cases used to test the controller and fine tune the associated gains. The 6-vector representing end effector error was plotted over time each of these case.
 <br>
 
-## End-Effector Reference Trajectory Generation
+##### Overshoot
+In this trial, the robot was still able to pick up the block and move it near the drop off location, but there was still a decent bit of error.
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/overshoot.jpg"/></center>
 <br>
 
-## Controls
+##### Best Run
+This trial was the best result I was able to obtain, and the corresponding video is at the top of this page
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/best.jpg"/></center>
 <br>
 
+##### New Task
+In this trial, the starting orientation of the block and the drop off position were both modified. The same controller from the best trial runn was used in this trial.
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/newTask.jpg"/></center>
+<br>
+<center>
+    <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
+        <video src="{{ site.url }}{{ site.baseurl }}/media/newTask.mp4" controls style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
+    </div>
+</center>
