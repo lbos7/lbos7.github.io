@@ -94,8 +94,6 @@ defaults:
     values:
       comments: false                                   # Set to true to enable disqus comments
 
-header:
-  logo_link: /projects/
 
 ### Exclude from processing ###
 exclude:
