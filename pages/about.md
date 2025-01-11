@@ -5,7 +5,7 @@ permalink: /about/
 weight: 3
 ---
 
-# **About Me**
+# About Me
 <div style="flex: 1; text-align: left;">
     <img src="{{ site.url }}{{ site.baseurl }}/media/picture.jpg" width="425"/>
 </div>
