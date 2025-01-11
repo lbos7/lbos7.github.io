@@ -8,7 +8,7 @@ description: Simulation of a KUKA youBot performing a pick and place task.
 # KUKA youBot Pick & Place
 The goal of this project was to implement concepts of robotic manipulation such as screw theory, motion planning, trajectory generation, and control through simulation of a pick and place task using a KUKA youBot in CoppeliaSim. A KUKA youBot is mobile manipulator with an omnidirectional base and a 5R robot arm (shown below).
 <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/youBot.jpg"/></center>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/youBot.jpg" width="500"/></center>
 <br>
 
 ## Demo
