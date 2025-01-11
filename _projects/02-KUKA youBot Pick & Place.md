@@ -13,11 +13,11 @@ The goal of this project was to implement concepts of robotic manipulation such 
 <br>
 
 ## Overview
-This project was divided into 3 main stages - youBot kinematics, end-effector reference trajectory generation, and controls. Once each stage was completed, a script was written to generate csv files with 13 elements in each line to run the simulation in CoppeliaSim.
+This project was divided into 3 main stages - youBot kinematics, end-effector reference trajectory generation, and controls. Once each stage was completed, a script was written to generate csv files with 13 elements in each line to run the simulation in CoppeliaSim. The 13 elements in the csv files repesent the following, in order: chassis orientation, chassis x-postion, chassis y-position, joint 1 angle, joint 2 angle, joint 3 angle, joint 4 angle, joint 5 angle, wheel 1 angle, wheel 2 angle, wheel 3 angle, wheel 4 angle, gripper state.
 <br>
 
 ## youBot Kinematics
-
+In order to calculate the first 12 elements in each csv line, a function was written that took in the following inputs: 12-vector representing current robot configuration, 9-vector representing joint and wheel speeds, timestep, max speed of joints and wheels. Using these inputs, the new robot configuration after the timestep was determined. 
 <br>
 
 ## End-Effector Reference Trajectory Generation
