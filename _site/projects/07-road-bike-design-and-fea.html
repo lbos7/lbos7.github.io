@@ -21,12 +21,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Ping Pong Robot From Scratch (In Progress)">
-  <meta property="og:description" content="Currently designing an omnidirectional robot capable of playing ping pong">
-  <meta property="og:image" content="https://lbos7.github.io/media/pingpongbot_assembled.jpg">
+  <meta property="og:title" content="Road Bike Design and FEA">
+  <meta property="og:description" content="Designed a road bike CAD model and performed a structural FEA to see how it deformed under a rider's weight">
+  <meta property="og:image" content="https://lbos7.github.io/media/frame displacement.gif">
 
-  <title>Ping Pong Robot From Scratch (In Progress)</title>
-  <meta name="description" content="Currently designing an omnidirectional robot capable of playing ping pong">
+  <title>Road Bike Design and FEA</title>
+  <meta name="description" content="Designed a road bike CAD model and performed a structural FEA to see how it deformed under a rider's weight">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -74,21 +74,31 @@
 
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
-  <h1 id="ping-pong-robot-from-scratch">Ping Pong Robot from Scratch</h1>
-<p>The goal of this project is to build a omnidirectional robot from scratch that is capable of returning ping pong balls to a player. As of 1/31/25, the initial robot has been built and my focus has shifted to the software side of the project.
-<br />
+  <h1 id="propeller-driven-balance-beam">Propeller-Driven Balance Beam</h1>
+<p>The goal of this project was to design a CAD model of a system with complex geometry using solid and surface modeling techniques. Components of this model were then used to perform a structural FEA simulation.
 <br /></p>
 
-<h2 id="hardware">Hardware</h2>
-<p>To start this project, I began by picking out parts and making a CAD model in Onshape. I decided on using a Raspberry Pi 5 running Ubuntu 24.04 LTS to operate the robot, which would allow me to use the most recent ROS2 distribution (Jazzy) that’s also installed on my computer. For actually moving the robot, I decided on using three 12 V brushed DC encoder motors from Pololu with 60 mm omniwheels connected to a 4-channel encoder motor driver from Hiwonder that uses I2C communication. Most of the parts are purchased, but a few of them are custom made (the 3 different levels are cut out of acrylic and the Raspberry Pi spacer, motor driver spacer, battery mounts, and paddle mount are all 3D printed with PLA). The model and physical robot are shown below.
+<h2 id="group-members">Group Members</h2>
+<p>Drew Bailey, Ty McCaffrey, Logan Boswell
 <br /></p>
-<center><img src="http://localhost:4000/media/pingpongbot_cad.png" /></center>
-<p><br /></p>
-<center><img src="http://localhost:4000/media/pingpongbot_assembled.jpg" width="600" /></center>
+
+<h2 id="overview">Overview</h2>
+<p>For a final project in the Georgia Institute of Technology’s ME 4042: Interactive CAD and FEA, my group decided on designing a road bike and performing a structural analysis to see how it deforms under a rider’s weight. The completed assembly is shown below.
+<br /></p>
+<center><img src="http://localhost:4000/media/roadbike.png" /></center>
 <p><br /></p>
 
-<h2 id="software">Software</h2>
-<p>I’m currently working on this aspect of the project. So far I’ve been focused on writing some code to interact with the motor driver for commanding motors and reading encoders. My next steps will be focused on integrating MoveIt.</p>
+<h2 id="my-focus">My Focus</h2>
+<p>In this project I was in charge of modeling everything besides the wheel and pedal assemblies and perfoming the FEA simulations on the bike frame and fork.
+<br /></p>
+
+<h2 id="modeling">Modeling</h2>
+<p>I used solid and surface modeling techniques to create my assigned parts. The most difficult part for me to make was the bike frame due to its complex geometry, which consisted of many surfaces. The assembly of my assigned parts is shown below.
+<br /></p>
+<center><img src="http://localhost:4000/media/body.png" /></center>
+<p><br /></p>
+
+<h2 id="fea">FEA</h2>
 
 </div>
   </main>

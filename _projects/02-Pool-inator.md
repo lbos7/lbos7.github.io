@@ -43,7 +43,7 @@ For a final project in Northwestern University's ME 495: Embedded Systems in Rob
 <br>
 
 ## My Focus
-In this project, my focus was on few areas, including movement and gameplay. I wrote some initial movement functions that were used for calibration in the early stages of this project, that were further refined and used for gameplay as the project went on. I also designed some custom pool cues that were easier to the robot to grip and maneuver around the table.
+In this project my focus was on few areas, including movement and gameplay. I wrote some initial movement functions that were used for calibration in the early stages of this project, that were further refined and used for gameplay as the project went on. I also designed some custom pool cues that were easier to the robot to grip and maneuver around the table.
 <br>
 
 ## Highlights

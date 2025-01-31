@@ -38,4 +38,4 @@ For the control system, it was necessary to design two PID controllers - one for
 <br>
 
 ## My Focus
-In this project, I was in charge of designing and building the physical system, including selecting all of the necessary components. In additon to this, I wrote the code for our Arduino microcontroller which only required minimal modifications during testing so we could test the gains for our PID controllers.
+In this project I was in charge of designing and building the physical system, including selecting all of the necessary components. In additon to this, I wrote the code for our Arduino microcontroller which only required minimal modifications during testing so we could test the gains for our PID controllers.

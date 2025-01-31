@@ -2,7 +2,7 @@
 name: Ping Pong Robot From Scratch (In Progress)
 tools: [ROS2, C++, MoveIt, Computer Vision, Onshape, Rapid Prototyping]
 image: https://lbos7.github.io/media/pingpongbot_assembled.jpg
-description: Currently designing and creating a ROS2 package for an omnidirectional robot capable of playing ping pong
+description: Currently designing an omnidirectional robot capable of playing ping pong
 ---
 
 # Ping Pong Robot from Scratch
