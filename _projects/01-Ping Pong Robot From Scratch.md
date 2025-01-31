@@ -15,7 +15,7 @@ To start this project, I began by picking out parts and making a CAD model in On
 <br>
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png"/></center>
 <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg"/></center>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg" width=400/></center>
 <br>
 
 

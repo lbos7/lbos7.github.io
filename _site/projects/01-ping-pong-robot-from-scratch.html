@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ping Pong Robot From Scratch (In Progress)">
+  <meta property="og:description" content="Currently designing and writing the software for an omnidirectional robot capable of playing ping pong.">
+  <meta property="og:image" content="https://lbos7.github.io/media/pingpongbot_assembled.jpg">
+
+  <title>Ping Pong Robot From Scratch (In Progress)</title>
+  <meta name="description" content="Currently designing and writing the software for an omnidirectional robot capable of playing ping pong.">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>Logan Boswell</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/resume/">Resume</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1 id="ping-pong-robot-from-scratch">Ping Pong Robot from Scratch</h1>
+<p>The goal of this project is to build a omnidirectional robot from scratch that is capable of returning ping pong balls to a player. As of 1/31/25, the initial robot has been built and my focus has shifted to the software side of the project.
+<br />
+<br /></p>
+
+<h2 id="hardware">Hardware</h2>
+<p>To start this project, I began by picking out parts and making a CAD model in Onshape. I decided on using a Raspberry Pi 5 running Ubuntu 24.04 LTS to operate the robot, which would allow me to use the most recent ROS2 distribution (Jazzy) that’s also installed on my computer. For actually moving the robot, I decided on using 3 12 V brushed DC encoder motors from Pololu with 60 mm omniwheels connected to a 4-channel encoder motor driver from Hiwonder. Most of the parts are purchased, but a few of them are custom made (the 3 different levels are cut out of acrylic and the Raspberry Pi spacer, motor driver spacer, battery mounts, and paddle mount are all 3D printed with PLA). The model and physical robot are shown below.
+<br /></p>
+<center><img src="http://localhost:4000/media/pingpongbot_cad.png" /></center>
+<p><br /></p>
+<center><img src="http://localhost:4000/media/pingpongbot_assembled.jpg" width="400" /></center>
+<p><br /></p>
+
+<h2 id="example-game--rviz-window">Example Game &amp; RVIZ Window</h2>
+<center>
+    <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
+        <video src="http://localhost:4000/media/poolinator.mp4" controls="" style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
+    </div>
+</center>
+<p><br /></p>
+<center>
+    <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
+        <video src="http://localhost:4000/media/poolinator_rviz.webm" controls="" style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
+    </div>
+</center>
+
+<h2 id="subsystems">Subsystems</h2>
+<ul>
+  <li><strong>Franka Emika Robot Arm:</strong> The arm was controlled using the ROS2 MoveIt API. A wrapper was written to make the API easier to use. The <code class="language-plaintext highlighter-rouge">control</code> node handles all the movement.</li>
+  <li><strong>Computer Vision:</strong> An Intel RealSense D435 Camera was used for all computer vision. April Tags were used for identifying the pool table’s pockets and calibrating the arm’s starting position. This camera was also used to identify all of the balls on the table. The <code class="language-plaintext highlighter-rouge">transform</code> node establishes the link between the camera frame and the robot base frame, and the <code class="language-plaintext highlighter-rouge">image_processor_colors</code> node identifies the pool balls.</li>
+  <li><strong>Gameplay:</strong> A pool algorithm was implemented so the robot would start a game by breaking and keep playing until all of the balls besides the cue ball (red ball in our case) were pocketed. Then, the robot would knock the cue ball into a pocket and return to its home position. If the cue ball was accidentally knocked in a pocket, the arm would wait until the cue ball is replaced and it is commanded to resume playing.
+<br /></li>
+</ul>
+
+<h2 id="my-focus">My Focus</h2>
+<p>In this project, my focus was on few areas, including movement and gameplay. I wrote some initial movement functions that were used for calibration in the early stages of this project, that were further refined and used for gameplay as the project went on. I also designed some custom pool cues that were easier to the robot to grip and maneuver around the table.
+<br /></p>
+
+<h2 id="highlights">Highlights</h2>
+<p>Here is a compilation of some of the best shots the robot made on the table.
+<br /></p>
+<center>
+    <div style="position: relative; padding-bottom: 28.125%; height:0; overflow: hidden;">
+        <video src="http://localhost:4000/media/PoolSuperCut.mp4" controls="" style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
+    </div>
+</center>
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Logan Boswell</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:loganstuartboswell@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/lbos7"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/lbos7"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+</html>
