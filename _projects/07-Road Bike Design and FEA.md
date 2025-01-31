@@ -2,7 +2,7 @@
 name: Road Bike Modeling and FEA
 tools: [Siemens NX, Surface Modeling, FEA]
 image: https://lbos7.github.io/media/frame displacement.gif
-description: Designed a road bike CAD model and performed a structural FEA to see how it deformed under a rider's weight
+description: Designed a road bike CAD model and performed structural FEA simulations to see how it deformed under a rider's weight
 ---
 
 # Propeller-Driven Balance Beam
