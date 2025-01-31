@@ -2,7 +2,7 @@
 name: Differential-Drive Car with two Operating Modes from Scratch
 tools: [LabVIEW, PID Control, Mechatronics, Microcontrollers, SolidWorks, Rapid Prototyping]
 image: https://lbos7.github.io/media/ddcar.gif
-description: Contsructed a differential-drive car capable of following a line or being controlled by an RC remote.
+description: Contsructed a differential-drive car capable of following a line or being controlled by an RC remote
 ---
 
 # Differential-Drive Car with two Operating Modes

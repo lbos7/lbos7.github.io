@@ -1,23 +1,23 @@
 ---
-name: Pool-inator
-tools: [ROS2, Python, MoveIt, Computer Vision]
-image: https://lbos7.github.io/media/poolinator.gif
-description: ROS2 Package to play a game of pool using an Emika Franka Panda arm and a tabletop pool set.
+name: Ping Pong Robot From Scratch (In Progress)
+tools: [ROS2, C++, MoveIt, Computer Vision, Onshape, Rapid Prototyping]
+image: https://lbos7.github.io/media/pingpongbot_assembled.jpg
+description: Currently designing and writing the software for an omnidirectional robot capable of playing ping pong.
 ---
 
-# Pool-inator
-<p class="text-center">
-{% include elements/button.html link="https://github.com/ME495-EmbeddedSystems/finalproject-jrblom2" text="GitHub Repo" %}
-</p>
+# Ping Pong Robot from Scratch
+The goal of this project is to build a omnidirectional robot from scratch that is capable of returning ping pong balls to a player. As of 1/31/25, the initial robot has been built and my focus has shifted to the software side of the project.
 <br>
-The goal of this project was to use the Franka Emika Panda 7 DOF arm (shown below) to play a game of pool on a tabletop pool set.
-<br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/franka.jpg"/></center>
 <br>
 
-## Group Members
-An Nguyen, Caroline Terryn, Catherine Maglione, Joseph Blom, Logan Boswell
+## Hardware
+To start this project, I began by picking out parts and making a CAD model in Onshape. I decided on using a Raspberry Pi 5 running Ubuntu 24.04 LTS to operate the robot, which would allow me to use the most recent ROS2 distribution (Jazzy) that's also installed on my computer. For actually moving the robot, I decided on using 3 12 V brushed DC encoder motors from Pololu with 60 mm omniwheels connected to a 4-channel encoder motor driver from Hiwonder. Most of the parts are purchased, but a few of them are custom made (the 3 different levels are cut out of acrylic and the Raspberry Pi spacer, motor driver spacer, battery mounts, and paddle mount are all 3D printed with PLA). The model and physical robot are shown below.
 <br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png"/></center>
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg"/></center>
+<br>
+
 
 ## Example Game & RVIZ Window
 <center>
@@ -31,10 +31,6 @@ An Nguyen, Caroline Terryn, Catherine Maglione, Joseph Blom, Logan Boswell
         <video src="{{ site.url }}{{ site.baseurl }}/media/poolinator_rviz.webm" controls style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></video>
     </div>
 </center>
-
-## Overview
-For a final project in Northwestern University's ME 495: Embedded Systems in Robotics, my group decided on the goal of using a 7 DOF robotic arm to play pool on a tabletop pool set in order to showcase the various skills gained using ROS2 throughout this course.
-<br>
 
 ## Subsystems
 - **Franka Emika Robot Arm:** The arm was controlled using the ROS2 MoveIt API. A wrapper was written to make the API easier to use. The `control` node handles all the movement.
