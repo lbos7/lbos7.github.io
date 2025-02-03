@@ -21,11 +21,11 @@ An Nguyen, Caroline Terryn, Catherine Maglione, Joseph Blom, Logan Boswell
 
 ## Example Game & RVIZ Window
 <center>
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/7k4V3p4_fAY" title="ME 495 Final Project Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/7k4V3p4_fAY" title="ME 495 Final Project Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 <br>
 <center>
-<iframe width="1280" height="698" src="https://www.youtube.com/embed/U5X-QT9_VOY" title="ME 495 Final Project RVIZ Window" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="640" height="349" src="https://www.youtube.com/embed/U5X-QT9_VOY" title="ME 495 Final Project RVIZ Window" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 ## Overview
@@ -46,5 +46,5 @@ In this project my focus was on few areas, including movement and gameplay. I wr
 Here is a compilation of some of the best shots the robot made on the table.
 <br>
 <center>
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/Oia1yhfn_NE" title="ME 495 Final Project Best Shots" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/Oia1yhfn_NE" title="ME 495 Final Project Best Shots" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
