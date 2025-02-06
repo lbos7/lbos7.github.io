@@ -5,7 +5,7 @@ image: https://lbos7.github.io/media/frame displacement.gif
 description: Designed a road bike CAD model and performed structural FEA simulations to see how it deformed under a rider's weight
 ---
 
-# Propeller-Driven Balance Beam
+# Road Bike Modeling and FEA
 The goal of this project was to design a CAD model of a system with complex geometry using solid and surface modeling techniques. Components of this model were then used to perform a structural FEA simulation.
 <br>
 
