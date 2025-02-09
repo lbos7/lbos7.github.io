@@ -6,7 +6,7 @@ description: Currently designing an omnidirectional robot capable of playing pin
 ---
 
 # Ping Pong Robot from Scratch
-The goal of this project is to build a omnidirectional robot from scratch that is capable of returning ping pong balls to a player. As of 1/31/25, the initial robot has been built and my focus has shifted to the software side of the project.
+The goal of this project is to build a omnidirectional robot from scratch that is capable of returning ping pong balls to a player. As of 2/8/25, the initial robot has been built and my focus has shifted to the software side of the project. I have developed some simple code to test the robot's movement and started work on making the ROS2 packages.
 <br>
 <br>
 
@@ -21,16 +21,7 @@ To start this project, I began by picking out parts and making a CAD model in On
 ## Software
 I'm currently working on this aspect of the project. So far I've been focused on writing the code necessary for movement, and I will soon shift to the code for the vision component of the project. Here are some simple movement demos.
 
-<!-- <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/straight_line.gif" width="400"/><img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif" width="400"/><center> -->
-<!-- <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif"/></center>
-<br> -->
-<!-- 
-<p float="middle">
-  <img src="{{ site.url }}{{ site.baseurl }}/media/straight_line.gif" width="300" />
-  <img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif" width="300" /> 
-</p> -->
+
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="{{ site.url }}{{ site.baseurl }}/media/straight_line.gif" width="400"/>
   <img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif" width="400"/>
