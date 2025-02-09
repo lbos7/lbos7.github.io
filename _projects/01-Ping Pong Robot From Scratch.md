@@ -1,6 +1,6 @@
 ---
 name: Ping Pong Robot From Scratch (In Progress)
-tools: [ROS2, C++, MoveIt, Computer Vision, Onshape, Rapid Prototyping]
+tools: [ROS2, C++, Computer Vision, Onshape, Rapid Prototyping]
 image: https://lbos7.github.io/media/pingpongbot_assembled.jpg
 description: Currently designing an omnidirectional robot capable of playing ping pong
 ---
@@ -19,4 +19,10 @@ To start this project, I began by picking out parts and making a CAD model in On
 <br>
 
 ## Software
-I'm currently working on this aspect of the project. So far I've been focused on writing some code to interact with the motor driver for commanding motors and reading encoders. My next steps will be focused on integrating MoveIt.
+I'm currently working on this aspect of the project. So far I've been focused on writing the code necessary for movement, and I will soon shift to the code for the vision component of the project. Here are some simple movement demos.
+
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/straight_line.gif"/></center>
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif"/></center>
+<br>
