@@ -21,8 +21,8 @@ To start this project, I began by picking out parts and making a CAD model in On
 ## Software
 I'm currently working on this aspect of the project. So far I've been focused on writing the code necessary for movement, and I will soon shift to the code for the vision component of the project. Here are some simple movement demos.
 
-<br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/straight_line.gif" width="400"/><img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif" width="400"/><center>
+<!-- <br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/straight_line.gif" width="400"/><img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif" width="400"/><center> -->
 <!-- <br>
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif"/></center>
 <br> -->
@@ -31,3 +31,7 @@ I'm currently working on this aspect of the project. So far I've been focused on
   <img src="{{ site.url }}{{ site.baseurl }}/media/straight_line.gif" width="300" />
   <img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif" width="300" /> 
 </p> -->
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="{{ site.url }}{{ site.baseurl }}/media/straight_line.gif" width="400"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif" width="400"/>
+</div>
