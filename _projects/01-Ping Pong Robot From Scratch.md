@@ -40,7 +40,7 @@ Simple movement demos:
 <br>
 Apriltag Setup:
 <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/apriltags.jpg"/></center>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/apriltags.jpg" width="800"/></center>
 <br>
 Tracking Demo:
 <br>
