@@ -19,7 +19,7 @@ To start this project, I began by picking out parts and making a CAD model in On
 <br>
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png"/>
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg" width="800"/>
 </div>
 <br>
 
