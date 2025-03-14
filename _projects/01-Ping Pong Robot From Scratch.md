@@ -21,8 +21,6 @@ To start this project, I began by picking out parts and making a CAD model in On
 
 After building this first version of the robot, I ran into a few issues: struggles accelerating from rest and inaccurate odometry updates. In order to address these issues, the robot was redesigned to include new motor drivers with higher output current, a PWM driver to interface with the drivers, an IMU, and a new battery (which resulted in a loss of about 1 lb). The redesigned robot is shown below.
 <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg" width="700"/></center>
-<br>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg" width="600"/>
