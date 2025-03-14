@@ -38,6 +38,10 @@ Simple movement demos:
 </div>
 
 <br>
+Apriltag Setup:
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/apriltags.jpg"/></center>
+<br>
 Tracking Demo:
 <br>
 <center><iframe width="880" height="658" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
