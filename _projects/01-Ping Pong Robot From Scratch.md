@@ -33,4 +33,4 @@ I'm currently working on this aspect of the project. So far I've been focused on
 </div>
 
 
-<center><iframe width="1280" height="658" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
+<center><iframe width="880" height="258" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
