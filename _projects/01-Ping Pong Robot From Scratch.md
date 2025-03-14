@@ -6,21 +6,22 @@ description: Currently designing an omnidirectional robot capable returning ping
 ---
 
 # Ping Pong Robot from Scratch
-The goal of this project is to build a omnidirectional robot from scratch that is capable of returning ping pong balls to a player. As of 2/8/25, the initial robot has been built and my focus has shifted to the software side of the project. I have developed some simple code to test the robot's movement and started work on making the ROS2 packages.
+The goal of this project is to build a omnidirectional robot from scratch that is capable of tracking ping pong balls and moving accordingly.
 <br>
 <br>
 
 ## Hardware
 To start this project, I began by picking out parts and making a CAD model in Onshape. I decided on using a Raspberry Pi 5 running Ubuntu 24.04 LTS to operate the robot, which would allow me to use the most recent ROS2 distribution (Jazzy) that's also installed on my computer. For actually moving the robot, I decided on using three 12 V brushed DC encoder motors from Pololu with 60 mm omniwheels connected to a 4-channel encoder motor driver from Hiwonder that uses I2C communication. Most of the parts are purchased, but a few of them are custom made (the 3 different levels are cut out of acrylic and the Raspberry Pi spacer, motor driver spacer, battery mounts, and paddle mount are all 3D printed with PLA). The model and physical robot are shown below.
-<!-- <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png"/></center>
-<br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg" width=600/></center> -->
 <br>
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png"/>
   <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg" width="700"/>
 </div>
+<br>
+
+After building this first version of the robot, I ran into a few issues: struggles accelerating from rest and inaccurate odometry updates. In order to address these issues, the robot was redesigned to include new motor drivers with higher output current, a PWM driver to interface with the drivers, an IMU, and a new battery (which resulted in a loss of about 1 lb). The redesigned robot is shown below.
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg"/></center>
 <br>
 
 ## Software
