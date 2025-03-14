@@ -25,8 +25,8 @@ After building this first version of the robot, I ran into a few issues: struggl
 <br>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg" width="700"/>
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_bottom_layer.jpg" width="700"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg" width="600"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_bottom_layer.jpg" width="600"/>
 </div>
 <br>
 
