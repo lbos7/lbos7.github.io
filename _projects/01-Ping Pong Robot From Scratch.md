@@ -2,7 +2,7 @@
 name: Ping Pong Robot From Scratch (In Progress)
 tools: [ROS2, C++, Computer Vision, Onshape, Rapid Prototyping]
 image: https://lbos7.github.io/media/pingpongbot_tracking.gif
-description: Currently designing an omnidirectional robot capable returning ping pong balls to a player
+description: Currently designing an omnidirectional robot capable of tracking ping pong balls and returning them to a player, if possible
 ---
 
 # Ping Pong Robot from Scratch
@@ -23,19 +23,21 @@ After building this first version of the robot, I ran into a few issues: struggl
 <br>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg" width="600"/>
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_bottom_layer.jpg" width="600"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg" width="500"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_bottom_layer.jpg" width="500"/>
 </div>
 <br>
 
 ## Software
-I'm currently working on this aspect of the project. So far I've been focused on writing the code necessary for movement, and I will soon shift to the code for the vision component of the project. Here are some simple movement demos.
-
+Simple movement demos:
+<br>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="{{ site.url }}{{ site.baseurl }}/media/straight_line.gif" width="400"/>
   <img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif" width="400"/>
 </div>
 
-
+<br>
+Tracking Demo:
+<br>
 <center><iframe width="880" height="658" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
