@@ -38,13 +38,28 @@ To start on the software side of this project, I began by writing some low-level
 </div>
 
 <br>
-From this point, I started writing ROS nodes so I could operate the robot wirelessly. My idea was to have one node running on the Raspberry Pi and the rest running on my laptop so the majority of the computations necessary during operation will be handled on my laptop, and the Pi just needs to interact with the hardware. With the first robot design, the driver node running on the Pi only needed to read encoder counts and send motor speeds to the 4-channel driver. After the redesign, the driver node needed to read encoder counts, IMU data, and generate PWM signals using I2C communication in addition to sending digital outputs to the motor drivers to set motor directions.
+From this point, I started writing ROS nodes so I could operate the robot wirelessly. My idea was to have one node running on the Raspberry Pi and the rest running on my laptop so the majority of the computations necessary during operation will be handled on my laptop, and the Pi just needs to interact with the hardware. A block diagram of the system ROS nodes is shown below.
 
 <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/ppb_block_dark.jpg" width="600"/></center>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/ppb_block_light.jpg" width="700"/></center>
 <br>
 
+With the first robot design, the driver node running on the Pi only needed to read encoder counts and send motor speeds to the 4-channel driver. After the redesign, the driver node needed to read encoder counts, IMU data, and generate PWM signals using I2C communication in addition to sending digital outputs to the motor drivers to set motor directions.
+
+#### Nodes
+- **Driver:** This is the node running on the Pi. With the first robot design, this node only needed to read encoder counts and send motor speeds to the 4-channel driver. After the redesign, this node needed to read encoder counts, IMU data, and generate PWM signals using I2C communication in addition to sending digital outputs to the motor drivers to set motor directions. This node subscribes to the `/wheel_speeds` topic to command the motors and publishes to the `/wheel_angles` and `/imu/data_raw` topics so the robot odometry can be updated
+- **JointStateUpdate:** This node subscribes to the `/wheel_angles` and `/wheel_speeds` topics and publishes to the `/joint_states` so the robot's joints update accordingly in rviz
+- **OdomUpdate:** This node subscribes to the `/wheel_angles` and `/cmd_vel` topics. It uses the wheel angles to update the transform between the odom frame and the base_footprint, and converts the twist message to wheel speeds, which is then published to the `/wheel_speeds` topic.
+- **Controller:** This node subscribes to the `/goal_pose` topic. It compares this goal pose with the current robot position and generates a twist message using a proportional controller (integral and derivative may be added later) that is published to the `/cmd_vel` topic.
+- **RealSense:** This node is from the following repo: {% include elements/button.html link="https://github.com/IntelRealSense/realsense-ros" text="realsense-ros" %}
+Using an Intel RealSense D435 Camera, this node publishes to multiple camera topics including color and depth images.
+- **Tracker:** This node subscribes to the camera topics. It uses OpenCV to identify the 3D position of a ping pong ball, and publishes it as a pointstamped message to the `/ball_pos` topic.
+- **AprilTag:** This node is from the following repo: {% include elements/button.html link="https://github.com/christianrauch/apriltag_ros" text="apriltag_ros" %}
+This node subscribes to the color image topic and broadcasts transforms for the two apriltags used in the system.
+- **Arena:** This node listens to the apriltag transforms broadcasted on the tf tree, and sets up an arena in rviz to represent half of a ping pong table by publishing a marker array to the `/visualization_marker_array` topic. This node also broadcasts the necessary transforms so the robot position relative to the table is updated correctly.
+- **Commander:** This node subscribes to the `/ball_pos` topic. It takes the position and determines a suitable goal_pose for the robot and publishes it as a posestamped message to the `/goal_pose` topic.
 <br>
+
 Apriltag Setup:
 <br>
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/apriltags.jpg" width="600"/></center>

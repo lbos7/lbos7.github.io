@@ -84,11 +84,11 @@
 <br /></p>
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="http://localhost:4000/media/pingpongbot_cad.png" />
-  <img src="http://localhost:4000/media/pingpongbot_assembled.jpg" width="700" />
+  <img src="http://localhost:4000/media/pingpongbot_assembled.jpg" width="600" />
 </div>
 <p><br /></p>
 
-<p>After building this first version of the robot, I ran into a few issues: struggles accelerating from rest and inaccurate odometry updates. In order to address these issues, the robot was redesigned to include new motor drivers with higher output current, a PWM driver to interface with the drivers, an IMU, and a new battery (which resulted in a loss of about 1 lb). The redesigned robot is shown below.
+<p>After building this first version of the robot, I ran into a few issues: struggles accelerating from rest and inaccurate odometry updates. In order to address these issues, the robot was redesigned to include new motor drivers with higher output current, a PWM driver to interface with the drivers, an IMU, and a new battery (which resulted in a loss of about 1 lb). The redesigned robot is shown below. I still use the 4 channel encoder motor driver to read the encoders, but I use the PWM driver board to generate the PWM signals necessary to move the motors. The new motor drivers use one PWM signal and two digital signals per motor to set motor speed and direction. These new additions resulted in better performance.
 <br /></p>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
@@ -98,7 +98,7 @@
 <p><br /></p>
 
 <h2 id="software">Software</h2>
-<p>Simple movement demos:
+<p>To start on the software side of this project, I began by writing some low-level code to read from and write to the 4-channel driver board I2C registers so I could set motor speeds and read encoder counts. Here are some simple, open-loop movement tests:
 <br /></p>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
@@ -107,7 +107,35 @@
 </div>
 
 <p><br />
-Apriltag Setup:
+From this point, I started writing ROS nodes so I could operate the robot wirelessly. My idea was to have one node running on the Raspberry Pi and the rest running on my laptop so the majority of the computations necessary during operation will be handled on my laptop, and the Pi just needs to interact with the hardware. A block diagram of the system ROS nodes is shown below.</p>
+
+<p><br /></p>
+<center><img src="http://localhost:4000/media/ppb_block_light.jpg" width="700" /></center>
+<p><br /></p>
+
+<p>With the first robot design, the driver node running on the Pi only needed to read encoder counts and send motor speeds to the 4-channel driver. After the redesign, the driver node needed to read encoder counts, IMU data, and generate PWM signals using I2C communication in addition to sending digital outputs to the motor drivers to set motor directions.</p>
+
+<h4 id="nodes">Nodes</h4>
+<ul>
+  <li><strong>Driver:</strong> This is the node running on the Pi. With the first robot design, this node only needed to read encoder counts and send motor speeds to the 4-channel driver. After the redesign, this node needed to read encoder counts, IMU data, and generate PWM signals using I2C communication in addition to sending digital outputs to the motor drivers to set motor directions. This node subscribes to the <code class="language-plaintext highlighter-rouge">/wheel_speeds</code> topic to command the motors and publishes to the <code class="language-plaintext highlighter-rouge">/wheel_angles</code> and <code class="language-plaintext highlighter-rouge">/imu/data_raw</code> topics so the robot odometry can be updated</li>
+  <li><strong>JointStateUpdate:</strong> This node subscribes to the <code class="language-plaintext highlighter-rouge">/wheel_angles</code> and <code class="language-plaintext highlighter-rouge">/wheel_speeds</code> topics and publishes to the <code class="language-plaintext highlighter-rouge">/joint_states</code> so the robot’s joints update accordingly in rviz</li>
+  <li><strong>OdomUpdate:</strong> This node subscribes to the <code class="language-plaintext highlighter-rouge">/wheel_angles</code> and <code class="language-plaintext highlighter-rouge">/cmd_vel</code> topics. It uses the wheel angles to update the transform between the odom frame and the base_footprint, and converts the twist message to wheel speeds, which is then published to the <code class="language-plaintext highlighter-rouge">/wheel_speeds</code> topic.</li>
+  <li><strong>Controller:</strong> This node subscribes to the <code class="language-plaintext highlighter-rouge">/goal_pose</code> topic. It compares this goal pose with the current robot position and generates a twist message using a proportional controller (integral and derivative may be added later) that is published to the <code class="language-plaintext highlighter-rouge">/cmd_vel</code> topic.</li>
+  <li><strong>RealSense:</strong> This node is from the following repo: <a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/IntelRealSense/realsense-ros">
+realsense-ros
+</a>
+Using an Intel RealSense D435 Camera, this node publishes to multiple camera topics including color and depth images.</li>
+  <li><strong>Tracker:</strong> This node subscribes to the camera topics. It uses OpenCV to identify the 3D position of a ping pong ball, and publishes it as a pointstamped message to the <code class="language-plaintext highlighter-rouge">/ball_pos</code> topic.</li>
+  <li><strong>AprilTag:</strong> This node is from the following repo: <a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/christianrauch/apriltag_ros">
+apriltag_ros
+</a>
+This node subscribes to the color image topic and broadcasts transforms for the two apriltags used in the system.</li>
+  <li><strong>Arena:</strong> This node listens to the apriltag transforms broadcasted on the tf tree, and sets up an arena in rviz to represent half of a ping pong table by publishing a marker array to the <code class="language-plaintext highlighter-rouge">/visualization_marker_array</code> topic. This node also broadcasts the necessary transforms so the robot position relative to the table is updated correctly.</li>
+  <li><strong>Commander:</strong> This node subscribes to the <code class="language-plaintext highlighter-rouge">/ball_pos</code> topic. It takes the position and determines a suitable goal_pose for the robot and publishes it as a posestamped message to the <code class="language-plaintext highlighter-rouge">/goal_pose</code> topic.
+<br /></li>
+</ul>
+
+<p>Apriltag Setup:
 <br /></p>
 <center><img src="http://localhost:4000/media/apriltags.jpg" width="600" /></center>
 <p><br />
