@@ -15,11 +15,11 @@ To start this project, I began by picking out parts and making a CAD model in On
 <br>
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png"/>
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg" width="700"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg" width="600"/>
 </div>
 <br>
 
-After building this first version of the robot, I ran into a few issues: struggles accelerating from rest and inaccurate odometry updates. In order to address these issues, the robot was redesigned to include new motor drivers with higher output current, a PWM driver to interface with the drivers, an IMU, and a new battery (which resulted in a loss of about 1 lb). The redesigned robot is shown below.
+After building this first version of the robot, I ran into a few issues: struggles accelerating from rest and inaccurate odometry updates. In order to address these issues, the robot was redesigned to include new motor drivers with higher output current, a PWM driver to interface with the drivers, an IMU, and a new battery (which resulted in a loss of about 1 lb). The redesigned robot is shown below. I still use the 4 channel encoder motor driver to read the encoders, but I use the PWM driver board to generate the PWM signals necessary to move the motors. The new motor drivers use one PWM signal and two digital signals per motor to set motor speed and direction. These new additions resulted in better performance.
 <br>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
@@ -29,13 +29,20 @@ After building this first version of the robot, I ran into a few issues: struggl
 <br>
 
 ## Software
-Simple movement demos:
+To start on the software side of this project, I began by writing some low-level code to read from and write to the 4-channel driver board I2C registers so I could set motor speeds and read encoder counts. Here are some simple, open-loop movement tests:
 <br>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="{{ site.url }}{{ site.baseurl }}/media/straight_line.gif" width="400"/>
   <img src="{{ site.url }}{{ site.baseurl }}/media/spin.gif" width="400"/>
 </div>
+
+<br>
+From this point, I started writing ROS nodes so I could operate the robot wirelessly. My idea was to have one node running on the Raspberry Pi and the rest running on my laptop so the majority of the computations necessary during operation will be handled on my laptop, and the Pi just needs to interact with the hardware. With the first robot design, the driver node running on the Pi only needed to read encoder counts and send motor speeds to the 4-channel driver. After the redesign, the driver node needed to read encoder counts, IMU data, and generate PWM signals using I2C communication in addition to sending digital outputs to the motor drivers to set motor directions.
+
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/ppb_block_dark.jpg" width="600"/></center>
+<br>
 
 <br>
 Apriltag Setup:
