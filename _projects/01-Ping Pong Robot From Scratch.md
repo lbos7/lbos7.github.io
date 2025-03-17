@@ -6,7 +6,7 @@ description: Currently designing an omnidirectional robot capable of tracking pi
 ---
 
 # Ping Pong Robot from Scratch
-The goal of this project is to build a omnidirectional robot from scratch that is capable of tracking ping pong balls and moving accordingly.
+This is a 10 week project with the ideal goal of building a omnidirectional robot from scratch that is capable of returning ping pong balls to a player. The idea behind this project is that this robot would sit on the opposite side of a ping pong table from a player and move accordingly to return the balls. Within this timeframe, my objective was to achieve the most effective level of functionality possible—whether that meant reliably returning the balls or at least tracking their movement and responding accordingly.
 <br>
 <br>
 
@@ -28,6 +28,16 @@ After building this first version of the robot, I ran into a few issues: struggl
 </div>
 <br>
 
+#### Additional Components
+In addition to fabricating the robot, I also made an apriltag setup consisting of two tags that will be used to set up the location of the robot relative the table when the ROS nodes are started. 
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/apriltags.jpg" width="600"/></center>
+<br>
+Also, for the computer vision aspect of the project (tracking the ball and setting the arena using apriltags) I am using an Intel RealSense D435 camera, which has depth capabilities.
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/realsense.jpg" width="600"/></center>
+<br>
+
 ## Software
 To start on the software side of this project, I began by writing some low-level code to read from and write to the 4-channel driver board I2C registers so I could set motor speeds and read encoder counts. Here are some simple, open-loop movement tests:
 <br>
@@ -41,29 +51,26 @@ To start on the software side of this project, I began by writing some low-level
 From this point, I started writing ROS nodes so I could operate the robot wirelessly. My idea was to have one node running on the Raspberry Pi and the rest running on my laptop so the majority of the computations necessary during operation will be handled on my laptop, and the Pi just needs to interact with the hardware. A block diagram of the system ROS nodes is shown below.
 
 <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/ppb_block_light.jpg" width="700"/></center>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/ppb_block_light.jpg" width="800"/></center>
 <br>
-
-With the first robot design, the driver node running on the Pi only needed to read encoder counts and send motor speeds to the 4-channel driver. After the redesign, the driver node needed to read encoder counts, IMU data, and generate PWM signals using I2C communication in addition to sending digital outputs to the motor drivers to set motor directions.
 
 #### Nodes
 - **Driver:** This is the node running on the Pi. With the first robot design, this node only needed to read encoder counts and send motor speeds to the 4-channel driver. After the redesign, this node needed to read encoder counts, IMU data, and generate PWM signals using I2C communication in addition to sending digital outputs to the motor drivers to set motor directions. This node subscribes to the `/wheel_speeds` topic to command the motors and publishes to the `/wheel_angles` and `/imu/data_raw` topics so the robot odometry can be updated
 - **JointStateUpdate:** This node subscribes to the `/wheel_angles` and `/wheel_speeds` topics and publishes to the `/joint_states` so the robot's joints update accordingly in rviz
 - **OdomUpdate:** This node subscribes to the `/wheel_angles` and `/cmd_vel` topics. It uses the wheel angles to update the transform between the odom frame and the base_footprint, and converts the twist message to wheel speeds, which is then published to the `/wheel_speeds` topic.
 - **Controller:** This node subscribes to the `/goal_pose` topic. It compares this goal pose with the current robot position and generates a twist message using a proportional controller (integral and derivative may be added later) that is published to the `/cmd_vel` topic.
-- **RealSense:** This node is from the following repo: {% include elements/button.html link="https://github.com/IntelRealSense/realsense-ros" text="realsense-ros" %}
+- **RealSense:** This node is from the following repo: {% include elements/button.html link="https://github.com/IntelRealSense/realsense-ros" text="realsense-ros" %}<br>
 Using an Intel RealSense D435 Camera, this node publishes to multiple camera topics including color and depth images.
 - **Tracker:** This node subscribes to the camera topics. It uses OpenCV to identify the 3D position of a ping pong ball, and publishes it as a pointstamped message to the `/ball_pos` topic.
-- **AprilTag:** This node is from the following repo: {% include elements/button.html link="https://github.com/christianrauch/apriltag_ros" text="apriltag_ros" %}
+- **AprilTag:** This node is from the following repo: {% include elements/button.html link="https://github.com/christianrauch/apriltag_ros" text="apriltag_ros" %}<br>
 This node subscribes to the color image topic and broadcasts transforms for the two apriltags used in the system.
 - **Arena:** This node listens to the apriltag transforms broadcasted on the tf tree, and sets up an arena in rviz to represent half of a ping pong table by publishing a marker array to the `/visualization_marker_array` topic. This node also broadcasts the necessary transforms so the robot position relative to the table is updated correctly.
 - **Commander:** This node subscribes to the `/ball_pos` topic. It takes the position and determines a suitable goal_pose for the robot and publishes it as a posestamped message to the `/goal_pose` topic.
 <br>
+<br>
+<br>
 
-Apriltag Setup:
-<br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/apriltags.jpg" width="600"/></center>
-<br>
-Tracking Demo:
+#### Tracking Demo
+While I am still working on this project, here is a recent demo of the robot moving based on the location of a ping pong ball and the associated rviz window:
 <br>
 <center><iframe width="880" height="658" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
