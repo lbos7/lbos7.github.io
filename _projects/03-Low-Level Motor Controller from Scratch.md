@@ -12,23 +12,26 @@ The goal of this project was to build and program a motor driver development boa
 ## Overview
 This was the final project of Northwestern University's ME 333: Intro to Mechatronics, so the hardware used in the system was selected for all of the students in the class
 <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/feedforwardlaw.png"/></center>
+
+## Development Board Setup
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/board.jpg" width="500"/></center>
 <br>
 
-## Results
-There were 3 cases used to test the controller and fine tune the associated gains. The 6-vector representing end effector error was plotted over time each of these case.
+## Testing Setup
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/test_setup.jpg" width="500"/></center>
 <br>
 
-##### Overshoot
-In this trial, the robot was still able to pick up the block and move it near the drop off location, but there was still a decent bit of error.
-<br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/overshoot.png"/></center>
+## Current Control Response
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/itest.png"/></center>
 <br>
 
-##### Best Run
-This trial was the best result I was able to obtain, and the corresponding video is at the top of this page
+## Trajectory Tracking Results
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/step.jpg"/></center>
+Gains Used: Kp = 10, Ki = .03, Kd = 250
 <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/best.png"/></center>
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/cubic.jpg"/></center>
+Gains Used: Kp = 10, Ki = .03, Kd = 1200
 <br>
 
 ## Demo

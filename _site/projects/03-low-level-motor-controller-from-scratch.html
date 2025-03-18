@@ -81,24 +81,27 @@
 <h2 id="overview">Overview</h2>
 <p>This was the final project of Northwestern University’s ME 333: Intro to Mechatronics, so the hardware used in the system was selected for all of the students in the class
 <br /></p>
-<center><img src="http://localhost:4000/media/feedforwardlaw.png" /></center>
+
+<h2 id="development-board-setup">Development Board Setup</h2>
+<center><img src="http://localhost:4000/media/board.jpg" width="500" /></center>
 <p><br /></p>
 
-<h2 id="results">Results</h2>
-<p>There were 3 cases used to test the controller and fine tune the associated gains. The 6-vector representing end effector error was plotted over time each of these case.
-<br /></p>
-
-<h5 id="overshoot">Overshoot</h5>
-<p>In this trial, the robot was still able to pick up the block and move it near the drop off location, but there was still a decent bit of error.
-<br /></p>
-<center><img src="http://localhost:4000/media/overshoot.png" /></center>
+<h2 id="testing-setup">Testing Setup</h2>
+<center><img src="http://localhost:4000/media/test_setup.jpg" width="500" /></center>
 <p><br /></p>
 
-<h5 id="best-run">Best Run</h5>
-<p>This trial was the best result I was able to obtain, and the corresponding video is at the top of this page
-<br /></p>
-<center><img src="http://localhost:4000/media/best.png" /></center>
+<h2 id="current-control-response">Current Control Response</h2>
+<center><img src="http://localhost:4000/media/itest.png" /></center>
 <p><br /></p>
+
+<h2 id="trajectory-tracking-results">Trajectory Tracking Results</h2>
+<center><img src="http://localhost:4000/media/step.jpg" /></center>
+<p>Gains Used: Kp = 10, Ki = .03, Kd = 250
+<br />
+<br /></p>
+<center><img src="http://localhost:4000/media/cubic.jpg" /></center>
+<p>Gains Used: Kp = 10, Ki = .03, Kd = 1200
+<br /></p>
 
 <h2 id="demo">Demo</h2>
 <center><iframe width="700" height="537" src="https://www.youtube.com/embed/H6QUa2eLzIY" title="ME 333 Final Project Demo - Low-Level Motor Driver" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></center>
