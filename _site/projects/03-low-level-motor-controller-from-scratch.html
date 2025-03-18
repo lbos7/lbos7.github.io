@@ -22,11 +22,11 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Low-Level Motor Controller from Scratch">
-  <meta property="og:description" content="Built a development board using a PIC32MX170F256B with peripherals and implemented PID control to make a motor driver">
+  <meta property="og:description" content="Built a development board using a PIC32MX170F256B with peripherals and implemented PID control to create a motor driver">
   <meta property="og:image" content="https://lbos7.github.io/media/motor_control_demo.gif">
 
   <title>Low-Level Motor Controller from Scratch</title>
-  <meta name="description" content="Built a development board using a PIC32MX170F256B with peripherals and implemented PID control to make a motor driver">
+  <meta name="description" content="Built a development board using a PIC32MX170F256B with peripherals and implemented PID control to create a motor driver">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -75,17 +75,11 @@
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
   <h1 id="low-level-motor-controller-from-scratch">Low-Level Motor Controller from Scratch</h1>
-<p>The goal of this project was to implement concepts of robotic manipulation such as screw theory, motion planning, trajectory generation, and control through simulation of a pick and place task using a KUKA youBot in CoppeliaSim. A KUKA youBot is mobile manipulator with an omnidirectional base and a 5R robot arm (shown below).
+<p>The goal of this project was to build and program a motor driver development board using a PIC32MX170F256B microcontroller that can be used for dc motor position control.
 <br /></p>
-<center><img src="http://localhost:4000/media/youBot.jpg" width="500" /></center>
-<p><br /></p>
-
-<h2 id="demo">Demo</h2>
-<center><iframe width="560" height="315" src="https://www.youtube.com/embed/W-60ke0rfIs?si=hSfqu9TzXMuvUW30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></center>
-<p><br /></p>
 
 <h2 id="overview">Overview</h2>
-<p>This project was divided into 3 main stages - youBot kinematics, end-effector reference trajectory generation, and controls. Each stage was associated with a corresponding function that were used to perform the simulation: NextState, TrajectoryGenerator, and FeedbackControl. NextState takes in the current robot configuration and calculates the new configuration after a .01s timestep using first-order Euler integration. TrajectoryGenerator creates an ideal trajectory for the end-effector in order to pick up the cube and drop it off in the correct place. FeedbackControl applies the kinematic task-space feedforward plus PI control law, which is shown below.
+<p>This was the final project of Northwestern University’s ME 333: Intro to Mechatronics, so the hardware used in the system was selected for all of the students in the class
 <br /></p>
 <center><img src="http://localhost:4000/media/feedforwardlaw.png" /></center>
 <p><br /></p>
@@ -106,12 +100,8 @@
 <center><img src="http://localhost:4000/media/best.png" /></center>
 <p><br /></p>
 
-<h5 id="new-task">New Task</h5>
-<p>In this trial, the starting orientation of the block and the drop off position were both modified. The same controller from the best trial runn was used in this trial.
-<br /></p>
-<center><img src="http://localhost:4000/media/newTask.png" /></center>
-<p><br /></p>
-<center><iframe width="560" height="315" src="https://www.youtube.com/embed/2Mv__pqTEF0?si=q05RkmNtKlVD0KZ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></center>
+<h2 id="demo">Demo</h2>
+<center><iframe width="700" height="537" src="https://www.youtube.com/embed/H6QUa2eLzIY" title="ME 333 Final Project Demo - Low-Level Motor Driver" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></center>
 
 </div>
   </main>
