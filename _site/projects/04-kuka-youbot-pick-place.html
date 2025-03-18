@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KUKA youBot Pick &amp; Place">
+  <meta property="og:description" content="Simulation of a KUKA youBot performing a pick and place task">
+  <meta property="og:image" content="https://lbos7.github.io/media/pick&place.gif">
+
+  <title>KUKA youBot Pick &amp; Place</title>
+  <meta name="description" content="Simulation of a KUKA youBot performing a pick and place task">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>Logan Boswell</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/resume/">Resume</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1 id="kuka-youbot-pick--place">KUKA youBot Pick &amp; Place</h1>
+<p>The goal of this project was to implement concepts of robotic manipulation such as screw theory, motion planning, trajectory generation, and control through simulation of a pick and place task using a KUKA youBot in CoppeliaSim. A KUKA youBot is mobile manipulator with an omnidirectional base and a 5R robot arm (shown below).
+<br /></p>
+<center><img src="http://localhost:4000/media/youBot.jpg" width="500" /></center>
+<p><br /></p>
+
+<h2 id="demo">Demo</h2>
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/W-60ke0rfIs?si=hSfqu9TzXMuvUW30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></center>
+<p><br /></p>
+
+<h2 id="overview">Overview</h2>
+<p>This project was divided into 3 main stages - youBot kinematics, end-effector reference trajectory generation, and controls. Each stage was associated with a corresponding function that were used to perform the simulation: NextState, TrajectoryGenerator, and FeedbackControl. NextState takes in the current robot configuration and calculates the new configuration after a .01s timestep using first-order Euler integration. TrajectoryGenerator creates an ideal trajectory for the end-effector in order to pick up the cube and drop it off in the correct place. FeedbackControl applies the kinematic task-space feedforward plus PI control law, which is shown below.
+<br /></p>
+<center><img src="http://localhost:4000/media/feedforwardlaw.png" /></center>
+<p><br /></p>
+
+<h2 id="results">Results</h2>
+<p>There were 3 cases used to test the controller and fine tune the associated gains. The 6-vector representing end effector error was plotted over time each of these case.
+<br /></p>
+
+<h5 id="overshoot">Overshoot</h5>
+<p>In this trial, the robot was still able to pick up the block and move it near the drop off location, but there was still a decent bit of error.
+<br /></p>
+<center><img src="http://localhost:4000/media/overshoot.png" /></center>
+<p><br /></p>
+
+<h5 id="best-run">Best Run</h5>
+<p>This trial was the best result I was able to obtain, and the corresponding video is at the top of this page
+<br /></p>
+<center><img src="http://localhost:4000/media/best.png" /></center>
+<p><br /></p>
+
+<h5 id="new-task">New Task</h5>
+<p>In this trial, the starting orientation of the block and the drop off position were both modified. The same controller from the best trial runn was used in this trial.
+<br /></p>
+<center><img src="http://localhost:4000/media/newTask.png" /></center>
+<p><br /></p>
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/2Mv__pqTEF0?si=q05RkmNtKlVD0KZ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></center>
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Logan Boswell</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:loganstuartboswell@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/lbos7"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/lbos7"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+</html>

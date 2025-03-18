@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Road Bike Modeling and FEA">
+  <meta property="og:description" content="Designed a road bike CAD model and performed structural FEA simulations to see how it deformed under a rider's weight">
+  <meta property="og:image" content="https://lbos7.github.io/media/frame displacement.gif">
+
+  <title>Road Bike Modeling and FEA</title>
+  <meta name="description" content="Designed a road bike CAD model and performed structural FEA simulations to see how it deformed under a rider's weight">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>Logan Boswell</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/resume/">Resume</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1 id="road-bike-modeling-and-fea">Road Bike Modeling and FEA</h1>
+<p>The goal of this project was to design a CAD model of a system with complex geometry using solid and surface modeling techniques. Components of this model were then used to perform a structural FEA simulation.
+<br /></p>
+
+<h2 id="group-members">Group Members</h2>
+<p>Drew Bailey, Ty McCaffrey, Logan Boswell
+<br /></p>
+
+<h2 id="overview">Overview</h2>
+<p>For a final project in the Georgia Institute of Technology’s ME 4042: Interactive CAD and FEA, my group decided on designing a road bike and performing a structural analysis to see how it deforms under a rider’s weight. The completed assembly is shown below.
+<br /></p>
+<center><img src="http://localhost:4000/media/roadbike.png" /></center>
+<p><br /></p>
+
+<h2 id="my-focus">My Focus</h2>
+<p>In this project I was in charge of modeling everything besides the wheel and pedal assemblies and perfoming the FEA simulations on the bike frame and fork.
+<br /></p>
+
+<h2 id="modeling">Modeling</h2>
+<p>I used solid and surface modeling techniques to create my assigned parts. The most difficult part for me to make was the bike frame due to its complex geometry, which consisted of many surfaces. The assembly of my assigned parts is shown below.
+<br /></p>
+<center><img src="http://localhost:4000/media/body.png" /></center>
+<p><br /></p>
+
+<h2 id="fea">FEA</h2>
+<p>Structural FEA simulations were performed on the frame and fork models. My group and I chose Aluminum 6061 for both models and assumed that the person riding the bike weighs 150 lbs. A simulation was completed on each of the models individually with a fixed constraint on the frame-fork connection and 1/4 of the rider weight applied to each of the places where wheels are connected. The simulation results are shown below for both models.
+<br /></p>
+<center><img src="http://localhost:4000/media/frame stress.gif" /></center>
+<p><br /></p>
+<center><img src="http://localhost:4000/media/frame stress (zoomed).gif" /></center>
+<p><br /></p>
+<center><img src="http://localhost:4000/media/frame displacement.gif" /></center>
+<p><br /></p>
+<center><img src="http://localhost:4000/media/fork stress (zoomed).gif" /></center>
+<p><br /></p>
+<center><img src="http://localhost:4000/media/fork displacement.gif" /></center>
+<p><br />
+The results from these simulations included max stress of 84.06 MPa and max displacement 2.25 mm for the frame and max stress of 68.45 MPa and max displacement of .435 mm for the fork. Hand calulculations were completed to verify the max displacements of the fork and frame and the hand-calulated max displacements were 1.942 mm for the frame and .391 mm for the fork, showing the simulation yielded reasonable results. As for the max stresses, the yield strength of Aluminum 6061 is 241 MPa, so the models are not at risk of breaking.</p>
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Logan Boswell</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:loganstuartboswell@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/lbos7"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/lbos7"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+</html>

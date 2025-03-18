@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Differential-Drive Car with two Operating Modes from Scratch">
+  <meta property="og:description" content="Contsructed a differential-drive car capable of following a line or being controlled by an RC remote">
+  <meta property="og:image" content="https://lbos7.github.io/media/ddcar.gif">
+
+  <title>Differential-Drive Car with two Operating Modes from Scratch</title>
+  <meta name="description" content="Contsructed a differential-drive car capable of following a line or being controlled by an RC remote">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>Logan Boswell</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/resume/">Resume</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1 id="differential-drive-car-with-two-operating-modes">Differential-Drive Car with two Operating Modes</h1>
+<p>The goal of this project was to build a differential-drive car that is able to follow a line or be controlled by a remote.
+<br /></p>
+
+<h2 id="group-members">Group Members</h2>
+<p>Zachary Burkhardt, Logan Boswell
+<br /></p>
+
+<h2 id="demo">Demo</h2>
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/wliyiFiHKXM?si=El4xbFObbxSllT5N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></center>
+
+<h2 id="overview">Overview</h2>
+<p>For a final project in the Georgia Institute of Technology’s ME 4405: Introduction to Mechatronics, my group decided on building a differential-drive car that is able to follow a line or be controlled by a remote.</p>
+
+<h2 id="system-overview">System Overview</h2>
+<p>To start this project, electronic components were selected and a preliminary CAD model was created. Some components of this model, such as the base, some mounts for different hardware, and the cover for the MyRIO needed to be made by the group through 3D printing or cutting with a waterjet. The model (with a few compenents omitted including screws and the wheels) is shown below.
+<br /></p>
+<center><img src="http://localhost:4000/media/ddcar_cad.jpg" /></center>
+<p><br />
+Once all of the necessary parts were made or had arrived, the car was assembled and all of the electronics were connected. The assembled car is shown below.
+<br /></p>
+<center><img src="http://localhost:4000/media/ddcar.jpg" /></center>
+<p><br />
+The electronic components of the car and how they are connected are shown in the diagram below.
+<br /></p>
+<center><img src="http://localhost:4000/media/ddcar_wiring.jpg" /></center>
+<p><br /></p>
+
+<h2 id="control-logic">Control Logic</h2>
+<p>When the car is powered on, it starts in line-following mode in which it only moves if a black line is detected by any element of the reflectance sensor array. Based on which elements of the reflectance sensor array detect the line, a PID controller adjusts the speeds of the motors in order to keep the car centered on the line. When a button on the side of the MyRIO is pressed, the car switches to remote-control mode where a joystick RC remote sends 2 PWM signals based on its xy-position. These signals are sent through the PWM to analog converters shown in the wiring diagram, and these signals are used to determine the direction of the joystick. That direction is compared to the current orientaion of the car determined using the magnetometer, and the same PID controller used for the line following mode is used to adjust the motor speeds.</p>
+
+<h2 id="my-focus">My Focus</h2>
+<p>In this project I was in charge of designing and building the physical system, including selecting all of the necessary components. In additon to this, I wrote the main virtual instrument file for operating the car and sub virtual instrument file for integrating the RC remote.</p>
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Logan Boswell</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:loganstuartboswell@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/lbos7"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/lbos7"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+</html>
