@@ -23,6 +23,7 @@ This was the final project of Northwestern University's ME 333: Intro to Mechatr
 
 ## Current Control Response
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/itest.png"/></center>
+Gains Used: Kp = .08, Ki = .07975
 <br>
 
 ## Trajectory Tracking Results
