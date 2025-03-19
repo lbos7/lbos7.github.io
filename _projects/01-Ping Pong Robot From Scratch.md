@@ -14,8 +14,8 @@ This is a 10 week project with the ideal goal of building a omnidirectional robo
 To start this project, I began by picking out parts and making a CAD model in Onshape. I decided on using a Raspberry Pi 5 running Ubuntu 24.04 LTS to operate the robot, which would allow me to use the most recent ROS2 distribution (Jazzy) that's also installed on my computer. For actually moving the robot, I decided on using three 12 V brushed DC encoder motors from Pololu with 60 mm omniwheels connected to a 4-channel encoder motor driver from Hiwonder that uses I2C communication. Most of the parts are purchased, but a few of them are custom made (the 3 different levels are cut out of acrylic and the Raspberry Pi spacer, motor driver spacer, battery mounts, and paddle mount are all 3D printed with PLA). The model and physical robot are shown below.
 <br>
 <div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png"/>
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg" width="600"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png" width="300"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg" width="400"/>
 </div>
 <br>
 
@@ -23,8 +23,8 @@ After building this first version of the robot, I ran into a few issues: struggl
 <br>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg" width="500"/>
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_bottom_layer.jpg" width="500"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg" width="400"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_bottom_layer.jpg" width="400"/>
 </div>
 <br>
 
@@ -35,7 +35,7 @@ In addition to fabricating the robot, I also made an apriltag setup consisting o
 <br>
 Also, for the computer vision aspect of the project (tracking the ball and setting the arena using apriltags) I am using an Intel RealSense D435 camera, which has depth capabilities.
 <br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/realsense.jpg" width="600"/></center>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/realsense.jpg" width="500"/></center>
 <br>
 
 ## Software
@@ -68,9 +68,8 @@ This node subscribes to the color image topic and broadcasts transforms for the 
 - **Commander:** This node subscribes to the `/ball_pos` topic. It takes the position and determines a suitable goal_pose for the robot and publishes it as a posestamped message to the `/goal_pose` topic.
 <br>
 <br>
-<br>
 
-#### Tracking Demo
+## Tracking Demo
 While I am still working on this project, here is a recent demo of the robot moving based on the location of a ping pong ball and the associated rviz window:
 <br>
-<center><iframe width="700" height="558" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
+<center><iframe width="600" height="458" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
