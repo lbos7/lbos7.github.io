@@ -73,4 +73,4 @@ This node subscribes to the color image topic and broadcasts transforms for the 
 #### Tracking Demo
 While I am still working on this project, here is a recent demo of the robot moving based on the location of a ping pong ball and the associated rviz window:
 <br>
-<center><iframe width="880" height="658" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
+<center><iframe width="700" height="558" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
