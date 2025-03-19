@@ -6,7 +6,7 @@ description: Built a development board using a PIC32MX170F256B with peripherals 
 ---
 
 # Low-Level Motor Controller from Scratch
-The goal of this project was to build and program a motor driver development board using a PIC32MX170F256B microcontroller that can be used for brushed dc motor position control.
+The goal of this project was to build and program a motor controller development board using a PIC32MX170F256B microcontroller that can be used for brushed dc motor position control.
 <br>
 
 ## Overview
