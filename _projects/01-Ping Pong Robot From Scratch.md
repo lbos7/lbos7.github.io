@@ -55,9 +55,12 @@ From this point, I started writing ROS nodes so I could operate the robot wirele
 <br>
 
 #### Nodes
-- **Driver:** This is the node running on the Pi. With the first robot design, this node only needed to read encoder counts and send motor speeds to the 4-channel driver. After the redesign, this node needed to read encoder counts, IMU data, and generate PWM signals using I2C communication in addition to sending digital outputs to the motor drivers to set motor directions. This node subscribes to the `/wheel_speeds` topic to command the motors and publishes to the `/wheel_angles` and `/imu/data_raw` topics so the robot odometry can be updated
-- **JointStateUpdate:** This node subscribes to the `/wheel_angles` and `/wheel_speeds` topics and publishes to the `/joint_states` so the robot's joints update accordingly in rviz
-- **OdomUpdate:** This node subscribes to the `/wheel_angles` and `/cmd_vel` topics. It uses the wheel angles to update the transform between the odom frame and the base_footprint, and converts the twist message to wheel speeds, which is then published to the `/wheel_speeds` topic.
+- **Driver:** This is the node running on the Pi. With the first robot design, this node only needed to read encoder counts and send motor speeds to the 4-channel driver. After the redesign, this node needed to read encoder counts, IMU data, and generate PWM signals using I2C communication in addition to sending digital outputs to the motor drivers to set motor directions. This node subscribes to the `/wheel_speeds` topic to command the motors and publishes to the `/wheel_angles` and `/imu/data_raw` topics so the robot odometry can be updated.
+- **JointStateUpdate:** This node subscribes to the `/wheel_angles` and `/wheel_speeds` topics and publishes to the `/joint_states` so the robot's joints update accordingly in rviz.
+- **OdomUpdate:** This node subscribes to the `/wheel_angles` and `/cmd_vel` topics. It uses the wheel angles to update the transform between the odom frame and the base_footprint, and converts the twist message to wheel speeds, which is then published to the `/wheel_speeds` topic. The kinematics and odometry calculations completed by this node are based on the equations below from "Modern Robotics: Mechanics, Planning, and Control" by Kevin M. Lynch and Frank C. Park.
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/omni_kinematics.png" width="600"/></center>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/omni_odometry.png" width="600"/></center>
+
 - **Controller:** This node subscribes to the `/goal_pose` topic. It compares this goal pose with the current robot position and generates a twist message using a proportional controller (integral and derivative may be added later) that is published to the `/cmd_vel` topic.
 - **RealSense:** This node is from the following repo: {% include elements/button.html link="https://github.com/IntelRealSense/realsense-ros" text="realsense-ros" %}<br>
 Using an Intel RealSense D435 Camera, this node publishes to multiple camera topics including color and depth images.
@@ -68,6 +71,12 @@ This node subscribes to the color image topic and broadcasts transforms for the 
 - **Commander:** This node subscribes to the `/ball_pos` topic. It takes the position and determines a suitable goal_pose for the robot and publishes it as a posestamped message to the `/goal_pose` topic.
 <br>
 <br>
+
+#### Source Code
+The source code for this project can be found at the GitHub repository linked below.
+<p class="text-center">
+{% include elements/button.html link="https://github.com/lbos7/pingpongbot" text="GitHub Repo" %}
+</p>
 
 ## Tracking Demo
 While I am still working on this project, here is a recent demo of the robot moving based on the location of a ping pong ball and the associated rviz window:
