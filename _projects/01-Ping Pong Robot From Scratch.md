@@ -1,5 +1,5 @@
 ---
-name: Ping Pong Robot From Scratch (In Progress)
+name: Ping Pong Robot From Scratch
 tools: [ROS2, C++, Computer Vision, Onshape, Rapid Prototyping]
 image: https://lbos7.github.io/media/pingpongbot_tracking.gif
 description: Currently designing an omnidirectional robot capable of tracking ping pong balls and returning them to a player, if possible
