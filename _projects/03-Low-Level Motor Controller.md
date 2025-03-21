@@ -1,11 +1,11 @@
 ---
-name: Low-Level Motor Controller from Scratch
+name: Low-Level Motor Controller
 tools: [C, Mechatronics, Microcontrollers, PID Control]
 image: https://lbos7.github.io/media/motor_control_demo.gif
 description: Built a development board using a PIC32MX170F256B with peripherals and implemented PID control to create a motor driver
 ---
 
-# Low-Level Motor Controller from Scratch
+# Low-Level Motor Controller
 The goal of this project was to build and program a motor controller development board using a PIC32MX170F256B microcontroller that can be used for brushed dc motor position control.
 <br>
 

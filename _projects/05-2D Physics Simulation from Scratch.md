@@ -1,11 +1,11 @@
 ---
-name: 2D Physics Simulation from Scratch
+name: 2D Physics Simulation
 tools: [Python, Lagrangian Dynamics]
 image: https://lbos7.github.io/media/jackbox.gif
 description: Simulation of a jack in a box with elastic impacts and external forces
 ---
 
-# 2D Physics Simulation from Scratch
+# 2D Physics Simulation
 The goal of this project was to create a simulation of a 6 DoF system modeled using Lagrangian dynamics. The system consists of a large "box" body with a small "jack" body inside of it where each body is free to translate in two directions and rotate about one axis.
 <br>
 
