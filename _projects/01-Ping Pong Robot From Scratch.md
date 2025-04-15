@@ -8,37 +8,16 @@ description: Designed and built an omnidirectional robot capable of tracking pin
 # Ping Pong Robot from Scratch
 This is a 10 week project with the ideal goal of building a omnidirectional robot from scratch that is capable of returning ping pong balls to a player. The idea behind this project is that this robot would sit on the opposite side of a ping pong table from a player and move accordingly to return the balls. Within this timeframe, my objective was to achieve the most effective level of functionality possible—whether that meant reliably returning the balls or at least tracking their movement and responding accordingly.
 <br>
-<br>
 
-## Hardware
-To start this project, I began by picking out parts and making a CAD model in Onshape. I decided on using a Raspberry Pi 5 running Ubuntu 24.04 LTS to operate the robot, which would allow me to use the most recent ROS2 distribution (Jazzy) that's also installed on my computer. For actually moving the robot, I decided on using three 12 V brushed DC encoder motors from Pololu with 60 mm omniwheels connected to a 4-channel encoder motor driver from Hiwonder that uses I2C communication. Most of the parts are purchased, but a few of them are custom made (the 3 different levels are cut out of acrylic and the Raspberry Pi spacer, motor driver spacer, battery mounts, and paddle mount are all 3D printed with PLA). The model and physical robot are shown below.
-<br>
-<div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png" width="300"/>
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg" width="400"/>
-</div>
-<br>
-
-After building this first version of the robot, I ran into a few issues: struggles accelerating from rest and inaccurate odometry updates. In order to address these issues, the robot was redesigned to include new motor drivers with higher output current, a PWM driver to interface with the drivers, an IMU, and a new battery (which resulted in a loss of about 1 lb). The redesigned robot is shown below. I still use the 4 channel encoder motor driver to read the encoders, but I use the PWM driver board to generate the PWM signals necessary to move the motors. The new motor drivers use one PWM signal and two digital signals per motor to set motor speed and direction. These new additions resulted in better performance.
-<br>
-
-<div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg" width="400"/>
-  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_bottom_layer.jpg" width="400"/>
-</div>
-<br>
-
-#### Additional Components
-In addition to fabricating the robot, I also made an apriltag setup consisting of two tags that will be used to set up the location of the robot relative the table when the ROS nodes are started. 
-<br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/apriltags.jpg" width="600"/></center>
-<br>
-Also, for the computer vision aspect of the project (tracking the ball and setting the arena using apriltags) I am using an Intel RealSense D435 camera, which has depth capabilities.
-<br>
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/realsense.jpg" width="500"/></center>
-<br>
+## Demo
+<center><iframe width="600" height="458" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 
 ## Software
+
+<p class="text-center">
+{% include elements/button.html link="https://github.com/lbos7/pingpongbot" text="GitHub Repo" %}
+</p>
+<br>
 To start on the software side of this project, I began by writing some low-level code to read from and write to the 4-channel driver board I2C registers so I could set motor speeds and read encoder counts. Here are some simple, open-loop movement tests:
 <br>
 
@@ -72,13 +51,30 @@ This node subscribes to the color image topic and broadcasts transforms for the 
 <br>
 <br>
 
-#### Source Code
-The source code for this project can be found at the GitHub repository linked below.
-<p class="text-center">
-{% include elements/button.html link="https://github.com/lbos7/pingpongbot" text="GitHub Repo" %}
-</p>
-
-## Tracking Demo
-While I am still working on this project, here is a recent demo of the robot moving based on the location of a ping pong ball and the associated rviz window:
+## Mechanical Design
+To start this project, I began by picking out parts and making a CAD model in Onshape. I decided on using a Raspberry Pi 5 running Ubuntu 24.04 LTS to operate the robot, which would allow me to use the most recent ROS2 distribution (Jazzy) that's also installed on my computer. For actually moving the robot, I decided on using three 12 V brushed DC encoder motors from Pololu with 60 mm omniwheels connected to a 4-channel encoder motor driver from Hiwonder that uses I2C communication. Most of the parts are purchased, but a few of them are custom made (the 3 different levels are cut out of acrylic and the Raspberry Pi spacer, motor driver spacer, battery mounts, and paddle mount are all 3D printed with PLA). The model and physical robot are shown below.
 <br>
-<center><iframe width="600" height="458" src="https://www.youtube.com/embed/xniCxi777LI" title="PingPongBot Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png" width="300"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_assembled.jpg" width="400"/>
+</div>
+<br>
+
+After building this first version of the robot, I ran into a few issues: struggles accelerating from rest and inaccurate odometry updates. In order to address these issues, the robot was redesigned to include new motor drivers with higher output current, a PWM driver to interface with the drivers, an IMU, and a new battery (which resulted in a loss of about 1 lb). The redesigned robot is shown below. I still use the 4 channel encoder motor driver to read the encoders, but I use the PWM driver board to generate the PWM signals necessary to move the motors. The new motor drivers use one PWM signal and two digital signals per motor to set motor speed and direction. These new additions resulted in better performance.
+<br>
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_new_design.jpg" width="400"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_bottom_layer.jpg" width="400"/>
+</div>
+<br>
+
+#### Additional Components
+In addition to fabricating the robot, I also made an apriltag setup consisting of two tags that will be used to set up the location of the robot relative the table when the ROS nodes are started. 
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/apriltags.jpg" width="600"/></center>
+<br>
+Also, for the computer vision aspect of the project (tracking the ball and setting the arena using apriltags) I am using an Intel RealSense D435 camera, which has depth capabilities.
+<br>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/realsense.jpg" width="500"/></center>
+<br>
