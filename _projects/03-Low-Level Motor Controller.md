@@ -2,7 +2,7 @@
 name: Low-Level Motor Controller
 tools: [C, Mechatronics, Microcontrollers, PID Control]
 image: https://lbos7.github.io/media/motor_control_demo.gif
-description: Built a development board using a PIC32MX170F256B with peripherals and implemented PID control to create a motor driver
+description: Built a development board using a PIC32MX170F256B microcontroller with peripherals and implemented 2 PID contollers to create a motor driver
 ---
 
 # Low-Level Motor Controller
