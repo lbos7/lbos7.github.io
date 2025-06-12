@@ -1,8 +1,8 @@
 ---
-name: Low-Level Motor Controller
-tools: [C, Mechatronics, Microcontrollers, PID Control]
-image: https://lbos7.github.io/media/motor_control_demo.gif
-description: Built a development board using a PIC32MX170F256B microcontroller with peripherals and implemented 2 PID contollers to create a motor driver
+name: Interactive Sketchpad
+tools: [Python, OpenCV, MediaPipe]
+image: https://lbos7.github.io/media/interactive-sketchpad.gif
+description: Created an application that allows a user to add drawings and annotations to a virtual canvas using their hand
 ---
 
 # Low-Level Motor Controller
