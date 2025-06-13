@@ -5,7 +5,7 @@ image: https://lbos7.github.io/media/cpdr_basic_move.gif
 description: Designed and built a planar cable-driven parallel robot; currently working on the software
 ---
 
-# Cable-Driven Parallel Robot
+# Cable-Driven Parallel Robot (In Progress)
 This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable underwater operation, my primary focus to date has been establishing a fully functional prototype in normal conditions. I began work on the system during the Spring 2025 quarter (late April through early June) and completed the initial design and achieved some basic movement. I am currently completing a summer internship (June–September) and plan to resume development in my final quarter, from September through December.
 <br>
 
