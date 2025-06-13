@@ -6,7 +6,7 @@ description: Contsructed a differential-drive car capable of following a line or
 ---
 
 # Differential-Drive Car with two Operating Modes
-The goal of this project was to build a differential-drive car that is able to follow a line or be controlled by a remote.
+This project was completed as the final project in the Georgia Institute of Technology's ME 4405: Introduction to Mechatronics, where my group decided on building a differential-drive car that is able to follow a line or be controlled by a remote.
 <br>
 
 ## Group Members
@@ -15,9 +15,6 @@ Zachary Burkhardt, Logan Boswell
 
 ## Demo
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/wliyiFiHKXM?si=El4xbFObbxSllT5N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
-
-## Overview
-For a final project in the Georgia Institute of Technology's ME 4405: Introduction to Mechatronics, my group decided on building a differential-drive car that is able to follow a line or be controlled by a remote.
 
 ## System Overview
 To start this project, electronic components were selected and a preliminary CAD model was created. Some components of this model, such as the base, some mounts for different hardware, and the cover for the MyRIO needed to be made by the group through 3D printing or cutting with a waterjet. The model (with a few compenents omitted including screws and the wheels) is shown below.

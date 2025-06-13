@@ -70,11 +70,10 @@ After building this first version of the robot, I ran into a few issues: struggl
 <br>
 
 #### Additional Components
-In addition to fabricating the robot, I also made an apriltag setup consisting of two tags that will be used to set up the location of the robot relative the table when the ROS nodes are started. 
+In addition to fabricating the robot, I also made an apriltag setup consisting of two tags that is used to set up the location of the robot relative the table when the ROS nodes are started. 
 <br>
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/apriltags.jpg" width="600"/></center>
 <br>
-Also, for the computer vision aspect of the project (tracking the ball and setting the arena using apriltags) I am using an Intel RealSense D435 camera, which has depth capabilities.
+Also, as part of the computer vision aspect of the project (tracking the ball and setting the arena using apriltags) I am using an Intel RealSense D435 camera, which has depth capabilities.
 <br>
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/realsense.jpg" width="500"/></center>
-<br>
