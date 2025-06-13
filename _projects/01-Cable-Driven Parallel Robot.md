@@ -1,6 +1,6 @@
 ---
 name: Cable-Driven Parallel Robot (In Progress)
-tools: [ROS2, C++, Python, Onshape, Rapid Prototyping]
+tools: [ROS2, C++, Python, Onshape, Rapid Prototyping, Mechatronics]
 image: https://lbos7.github.io/media/cpdr_basic_move.gif
 description: Designed and built a planar cable-driven parallel robot; currently working on the software
 ---
