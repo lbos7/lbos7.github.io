@@ -12,7 +12,6 @@ This project was completed as the final project of Northwestern University's MSA
 ## Demo
 <center><iframe width="800" height="500" src="https://www.youtube.com/embed/eManR3R7KWY" title="Interactive Sketchpad Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 
-
 ## Tools Used
 - OpenCV
 - MediaPipe Hands model

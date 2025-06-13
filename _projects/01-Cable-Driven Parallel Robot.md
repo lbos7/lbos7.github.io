@@ -6,7 +6,7 @@ description: Designed and built a planar cable-driven parallel robot; currently 
 ---
 
 # Cable-Driven Parallel Robot
-This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable underwater operation, my primary focus to date has been establishing a fully functional prototype above water. I began work on the system during the Spring 2025 quarter (late April through early June) and completed the initial design and achieved some basic movement. I am currently completing a summer internship (June–September) and plan to resume development in my final quarter, from September through December.
+This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable underwater operation, my primary focus to date has been establishing a fully functional prototype in normal conditions. I began work on the system during the Spring 2025 quarter (late April through early June) and completed the initial design and achieved some basic movement. I am currently completing a summer internship (June–September) and plan to resume development in my final quarter, from September through December.
 <br>
 
 ## Demo
@@ -24,3 +24,8 @@ With these in mind, I decided on using 4 cables since that would allow for the c
   <img src="{{ site.url }}{{ site.baseurl }}/media/cpdr_CAD.png" width="350"/>
   <img src="{{ site.url }}{{ site.baseurl }}/media/cpdr_assembled.jpg" width="400"/>
 </div>
+In terms of modeling, the main components of interest of this design are the motor-drum asseblies that are used for winding and unwinding the cables. The drums are threaded, which allows for predictable winding and unwinding of the cables. These drums have heat-set inserts that are used to mount the shaft collars, which then secure the drums to the shafts that are coupled with the motors.
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/motor_plate.jpg" width="700"/></center>
+
+## Next Steps
+As of 6/8/25, I have finished working on the project in the spring quarter and I will resume working on this project when I return for the fall quarter - starting with work on the necessary software.
