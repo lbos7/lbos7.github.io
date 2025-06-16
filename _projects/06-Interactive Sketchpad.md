@@ -45,5 +45,5 @@ Colors can be selected, buttons can be pressed, and sliders can be adjusted by m
 - Option to save annotated image or video
 - Add more features such as shape detection
 <p class="text-center">
-{% include elements/button.html link="https://github.com/lbos7/pingpongbot" text="GitHub Repo" %}
+{% include elements/button.html link="https://github.com/lbos7/interactive-sketchpad text="GitHub Repo" %}
 </p>
