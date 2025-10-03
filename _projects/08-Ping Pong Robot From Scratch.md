@@ -1,6 +1,6 @@
 ---
 name: Ping Pong Robot From Scratch
-tools: [ROS2, C++, OpenCV, Onshape, Rapid Prototyping, Mechatronics]
+tools: [ROS 2, C++, OpenCV, Onshape, Rapid Prototyping, Mechatronics]
 image: https://lbos7.github.io/media/pingpongbot_tracking.gif
 description: Designed and built an omnidirectional robot capable of tracking ping pong balls and moving accordingly to mirror the ball position
 ---
@@ -52,7 +52,7 @@ This node subscribes to the color image topic and broadcasts transforms for the 
 <br>
 
 ## Mechanical Design
-To start this project, I began by picking out parts and making a CAD model in Onshape. I decided on using a Raspberry Pi 5 running Ubuntu 24.04 LTS to operate the robot, which would allow me to use the most recent ROS2 distribution (Jazzy) that's also installed on my computer. For actually moving the robot, I decided on using three 12 V brushed DC encoder motors from Pololu with 60 mm omniwheels connected to a 4-channel encoder motor driver from Hiwonder that uses I2C communication. Most of the parts are purchased, but a few of them are custom made (the 3 different levels are cut out of acrylic and the Raspberry Pi spacer, motor driver spacer, battery mounts, and paddle mount are all 3D printed with PLA). The model and physical robot are shown below.
+To start this project, I began by picking out parts and making a CAD model in Onshape. I decided on using a Raspberry Pi 5 running Ubuntu 24.04 LTS to operate the robot, which would allow me to use the most recent ROS 2 distribution (Jazzy) that's also installed on my computer. For actually moving the robot, I decided on using three 12 V brushed DC encoder motors from Pololu with 60 mm omniwheels connected to a 4-channel encoder motor driver from Hiwonder that uses I2C communication. Most of the parts are purchased, but a few of them are custom made (the 3 different levels are cut out of acrylic and the Raspberry Pi spacer, motor driver spacer, battery mounts, and paddle mount are all 3D printed with PLA). The model and physical robot are shown below.
 <br>
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="{{ site.url }}{{ site.baseurl }}/media/pingpongbot_cad.png" width="300"/>

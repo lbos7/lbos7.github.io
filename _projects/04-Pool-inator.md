@@ -1,12 +1,12 @@
 ---
 name: Pool-inator
-tools: [ROS2, Python, MoveIt, OpenCV]
+tools: [ROS 2, Python, MoveIt, OpenCV]
 image: https://lbos7.github.io/media/poolinator.gif
-description: ROS2 Package to play a game of pool using an Emika Franka Panda arm and a tabletop pool set
+description: ROS 2 Package to play a game of pool using an Emika Franka Panda arm and a tabletop pool set
 ---
 
 # Pool-inator
-For a final project in Northwestern University's ME 495: Embedded Systems in Robotics, my group decided on the goal of using a 7 DOF robotic arm to play pool on a tabletop pool set in order to showcase the various skills gained using ROS2 throughout this course.
+For a final project in Northwestern University's ME 495: Embedded Systems in Robotics, my group decided on the goal of using a 7 DOF robotic arm to play pool on a tabletop pool set in order to showcase the various skills gained using ROS 2 throughout this course.
 <br>
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/franka.jpg"/></center>
 <p class="text-center">
@@ -27,7 +27,7 @@ An Nguyen, Caroline Terryn, Catherine Maglione, Joseph Blom, Logan Boswell
 
 
 ## Subsystems
-- **Franka Emika Robot Arm:** The arm was controlled using the ROS2 MoveIt API. A wrapper was written to make the API easier to use. The `control` node handles all the movement.
+- **Franka Emika Robot Arm:** The arm was controlled using the ROS 2 MoveIt API. A wrapper was written to make the API easier to use. The `control` node handles all the movement.
 - **Computer Vision:** An Intel RealSense D435 Camera was used for all computer vision. April Tags were used for identifying the pool table's pockets and calibrating the arm's starting position. This camera was also used to identify all of the balls on the table. The `transform` node establishes the link between the camera frame and the robot base frame, and the `image_processor_colors` node identifies the pool balls.
 - **Gameplay:** A pool algorithm was implemented so the robot would start a game by breaking and keep playing until all of the balls besides the cue ball (red ball in our case) were pocketed. Then, the robot would knock the cue ball into a pocket and return to its home position. If the cue ball was accidentally knocked in a pocket, the arm would wait until the cue ball is replaced and it is commanded to resume playing.
 
