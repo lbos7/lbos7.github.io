@@ -22,11 +22,11 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Pool-inator">
-  <meta property="og:description" content="ROS2 Package to play a game of pool using an Emika Franka Panda arm and a tabletop pool set">
+  <meta property="og:description" content="ROS 2 Package to play a game of pool using an Emika Franka Panda arm and a tabletop pool set">
   <meta property="og:image" content="https://lbos7.github.io/media/poolinator.gif">
 
   <title>Pool-inator</title>
-  <meta name="description" content="ROS2 Package to play a game of pool using an Emika Franka Panda arm and a tabletop pool set">
+  <meta name="description" content="ROS 2 Package to play a game of pool using an Emika Franka Panda arm and a tabletop pool set">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -75,7 +75,7 @@
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
   <h1 id="pool-inator">Pool-inator</h1>
-<p>For a final project in Northwestern University’s ME 495: Embedded Systems in Robotics, my group decided on the goal of using a 7 DOF robotic arm to play pool on a tabletop pool set in order to showcase the various skills gained using ROS2 throughout this course.
+<p>For a final project in Northwestern University’s ME 495: Embedded Systems in Robotics, my group decided on the goal of using a 7 DOF robotic arm to play pool on a tabletop pool set in order to showcase the various skills gained using ROS 2 throughout this course.
 <br /></p>
 <center><img src="http://localhost:4000/media/franka.jpg" /></center>
 <p class="text-center">
@@ -98,7 +98,7 @@
 
 <h2 id="subsystems">Subsystems</h2>
 <ul>
-  <li><strong>Franka Emika Robot Arm:</strong> The arm was controlled using the ROS2 MoveIt API. A wrapper was written to make the API easier to use. The <code class="language-plaintext highlighter-rouge">control</code> node handles all the movement.</li>
+  <li><strong>Franka Emika Robot Arm:</strong> The arm was controlled using the ROS 2 MoveIt API. A wrapper was written to make the API easier to use. The <code class="language-plaintext highlighter-rouge">control</code> node handles all the movement.</li>
   <li><strong>Computer Vision:</strong> An Intel RealSense D435 Camera was used for all computer vision. April Tags were used for identifying the pool table’s pockets and calibrating the arm’s starting position. This camera was also used to identify all of the balls on the table. The <code class="language-plaintext highlighter-rouge">transform</code> node establishes the link between the camera frame and the robot base frame, and the <code class="language-plaintext highlighter-rouge">image_processor_colors</code> node identifies the pool balls.</li>
   <li><strong>Gameplay:</strong> A pool algorithm was implemented so the robot would start a game by breaking and keep playing until all of the balls besides the cue ball (red ball in our case) were pocketed. Then, the robot would knock the cue ball into a pocket and return to its home position. If the cue ball was accidentally knocked in a pocket, the arm would wait until the cue ball is replaced and it is commanded to resume playing.</li>
 </ul>
