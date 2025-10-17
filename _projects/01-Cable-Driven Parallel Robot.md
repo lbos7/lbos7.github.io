@@ -1,7 +1,7 @@
 ---
 name: Cable-Driven Parallel Robot from Scratch (In Progress)
 tools: [ROS 2, C++, Python, Onshape, Rapid Prototyping, Mechatronics, Microcontrollers]
-image: https://lbos7.github.io/media/cpdr_basic_move.gif
+image: https://lbos7.github.io/media/cpdr.gif
 description: Designed and built a planar cable-driven parallel robot; currently working on the software
 ---
 
