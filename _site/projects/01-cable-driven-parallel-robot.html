@@ -121,13 +121,15 @@
 </div>
 <p>In terms of modeling, the main components of interest of this design are the motor-drum asseblies that are used for winding and unwinding the cables. The drums are threaded, which allows for predictable winding and unwinding of the cables. These drums have heat-set inserts that are used to mount the shaft collars, which then secure the drums to the shafts that are coupled with the motors.</p>
 <center><img src="http://localhost:4000/media/drum_winding.gif" width="700" /></center>
+<p><br /></p>
 
 <h2 id="control-system">Control System</h2>
 <p>To move the end-effector while keeping the cables in tension, a custom force-based controller was designed and tuned (block diagram shown below).</p>
 <center><img src="http://localhost:4000/media/detailed_block_diagram.png" width="700" /></center>
 <p>In this control system, position and velocity errors generate a 2D force in the workspace plane, which is then broken down into the 4 specific cable contributions. The tensions from the PID controller are added to estimated tensions from a feedforward model that estimates the tensions based on end-effector position. The sums of the PID and feedforward tensions are converted to torques and sent to the ODrive controller (shown below).</p>
 <center><img src="http://localhost:4000/media/odrive_controller.png" width="700" /></center>
-<p>One of the main motivations for designing the force-based controller is that it makes it easier to keep the cables in tension when the motors are in torque control mode. Another route that could have been taken would have been to operate the motors in position control mode while also sending velocity and torque feedforward commands, but this would likely require a tension distribution algorithm to prevent the cables from having slack.</p>
+<p>One of the main motivations for designing the force-based controller is that it makes it easier to keep the cables in tension when the motors are in torque control mode. Another route that could have been taken would have been to operate the motors in position control mode while also sending velocity and torque feedforward commands, but this would likely require a tension distribution algorithm to prevent the cables from having slack.
+<br /></p>
 
 <h2 id="performance">Performance</h2>
 <p>In order for the controller to function correctly, the position and velocity errors must accurately reflect the current state of the system. Since forward kinematics is used to estimate the current end-effector position, I did some testing to see how accurate this estimate is. For my testing, I moved the end-effector to various points in the workspace and logged the estimated and actual end-effector positions (actual position estimated using apriltags).</p>
