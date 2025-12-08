@@ -2,11 +2,11 @@
 name: Cable-Driven Parallel Robot from Scratch (In Progress)
 tools: [ROS 2, C++, Python, Onshape, Rapid Prototyping, Mechatronics, Microcontrollers]
 image: https://lbos7.github.io/media/cdpr.gif
-description: Designed and built a planar cable-driven parallel robot; currently working on the software
+description: Designed and built a planar cable-driven parallel robot capable of operating while submerged in water
 ---
 
 # Cable-Driven Parallel Robot from Scratch (In Progress)
-This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable underwater operation, my primary focus to date has been establishing a fully functional prototype in normal conditions. I have recently began preparing to begin testing in water.
+This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable operation while submerged in water, my primary focus to date has been establishing a fully functional prototype in normal conditions. I have recently began preparing to begin testing in water.
 <br>
 
 ## Demo
