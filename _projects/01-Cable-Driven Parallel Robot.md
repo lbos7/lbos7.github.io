@@ -6,11 +6,19 @@ description: Designed and built a planar cable-driven parallel robot; currently 
 ---
 
 # Cable-Driven Parallel Robot from Scratch (In Progress)
-This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable underwater operation, my primary focus to date has been establishing a fully functional prototype in normal conditions. I began work on the system during the Spring 2025 quarter (late April through early June) and completed the initial design and achieved some basic movement. I am currently completing a summer internship (June–September) and plan to resume development in my final quarter, from September through December.
+This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable underwater operation, my primary focus to date has been establishing a fully functional prototype in normal conditions. I have recently began preparing to begin testing in water.
 <br>
 
 ## Demo
-<center><iframe width="818" height="779" src="https://www.youtube.com/embed/73dWy-ku6m4" title="CPDR Basic Move" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
+<!-- <center><iframe width="818" height="779" src="https://www.youtube.com/embed/73dWy-ku6m4" title="CPDR Basic Move" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center> -->
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="{{ site.url }}{{ site.baseurl }}/media/setpoint_square" width="400"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/traj_square.gif" width="400"/>
+</div>
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="{{ site.url }}{{ site.baseurl }}/media/setpoint_diamond.gif" width="400"/>
+  <img src="{{ site.url }}{{ site.baseurl }}/media/traj_diamond.gif" width="400"/>
+</div>
 
 ## Mechanical Design
 Before designing this robot, I had two main constraints/clarifications for this project that are important to note: 
@@ -27,5 +35,12 @@ With these in mind, I decided on using 4 cables since that would allow for the c
 In terms of modeling, the main components of interest of this design are the motor-drum asseblies that are used for winding and unwinding the cables. The drums are threaded, which allows for predictable winding and unwinding of the cables. These drums have heat-set inserts that are used to mount the shaft collars, which then secure the drums to the shafts that are coupled with the motors.
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/motor_plate.jpg" width="700"/></center>
 
+## Control System
+To move the end-effector while keeping the cables in tension, a custom force-based controller was designed and tuned (block diagram shown below).
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/detailed_block_diagram.png" width="700"/></center>
+In this control system, position and velocity errors generate a 2D force in the workspace plane, which is then broken down into the 4 specific cable contributions. The tensions from the PID controller are added to estimated tensions from a feedforward model that estimates the tensions based on end-effector position. The sums of the PID and feedforward tensions are converted to torques and sent to the ODrive controller (shown below).
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/odrive_controller.png" width="700"/></center>
+One of the main motivations for designing the force-based controller is that it makes it easier to keep the cables in tension when the motors are in torque control mode. Another route that could have been taken would have been to operate the motors in position control mode while also sending velocity and torque feedforward commands, but this would likely require a tension distribution algorithm to prevent the cables from having slack.
+
 ## Next Steps
-As of 6/8/25, I have finished working on the project in the spring quarter and I will resume working on this project when I return for the fall quarter - starting with work on the necessary software.
+As of 12/7/25, I am actively prepping for testing in water and wrapping up this project.
