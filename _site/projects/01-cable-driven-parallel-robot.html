@@ -75,11 +75,36 @@
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
   <h1 id="cable-driven-parallel-robot-from-scratch-in-progress">Cable-Driven Parallel Robot from Scratch (In Progress)</h1>
-<p>This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable underwater operation, my primary focus to date has been establishing a fully functional prototype in normal conditions. I began work on the system during the Spring 2025 quarter (late April through early June) and completed the initial design and achieved some basic movement. I am currently completing a summer internship (June–September) and plan to resume development in my final quarter, from September through December.
+<p>This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable underwater operation, my primary focus to date has been establishing a fully functional prototype in normal conditions. I have recently began preparing to begin testing in water.
 <br /></p>
 
 <h2 id="demo">Demo</h2>
-<center><iframe width="818" height="779" src="https://www.youtube.com/embed/73dWy-ku6m4" title="CPDR Basic Move" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></center>
+<!-- <center><iframe width="818" height="779" src="https://www.youtube.com/embed/73dWy-ku6m4" title="CPDR Basic Move" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center> -->
+<p style="text-align: center;">Square Waypoints (0.4 m side length, centered at (0, 0))</p>
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/setpoint_square.gif" width="400" />
+    <p>Setpoint Control</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/traj_square.gif" width="400" />
+    <p>Trajectory Control @ 0.5, 1, and 2 m/s</p>
+  </div>
+</div>
+<p><br /></p>
+<p style="text-align: center;">Diamond Waypoints (0.4 m side length, centered at (0, 0))</p>
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/setpoint_diamond.gif" width="400" />
+    <p>Setpoint Control</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/traj_diamond.gif" width="400" />
+    <p>Trajectory Control @ 0.5, 1, and 2 m/s</p>
+  </div>
+</div>
 
 <h2 id="mechanical-design">Mechanical Design</h2>
 <p>Before designing this robot, I had two main constraints/clarifications for this project that are important to note:</p>
@@ -95,10 +120,52 @@
   <img src="http://localhost:4000/media/cpdr_assembled.jpg" width="400" />
 </div>
 <p>In terms of modeling, the main components of interest of this design are the motor-drum asseblies that are used for winding and unwinding the cables. The drums are threaded, which allows for predictable winding and unwinding of the cables. These drums have heat-set inserts that are used to mount the shaft collars, which then secure the drums to the shafts that are coupled with the motors.</p>
-<center><img src="http://localhost:4000/media/motor_plate.jpg" width="700" /></center>
+<center><img src="http://localhost:4000/media/drum_winding.gif" width="700" /></center>
+
+<h2 id="control-system">Control System</h2>
+<p>To move the end-effector while keeping the cables in tension, a custom force-based controller was designed and tuned (block diagram shown below).</p>
+<center><img src="http://localhost:4000/media/detailed_block_diagram.png" width="700" /></center>
+<p>In this control system, position and velocity errors generate a 2D force in the workspace plane, which is then broken down into the 4 specific cable contributions. The tensions from the PID controller are added to estimated tensions from a feedforward model that estimates the tensions based on end-effector position. The sums of the PID and feedforward tensions are converted to torques and sent to the ODrive controller (shown below).</p>
+<center><img src="http://localhost:4000/media/odrive_controller.png" width="700" /></center>
+<p>One of the main motivations for designing the force-based controller is that it makes it easier to keep the cables in tension when the motors are in torque control mode. Another route that could have been taken would have been to operate the motors in position control mode while also sending velocity and torque feedforward commands, but this would likely require a tension distribution algorithm to prevent the cables from having slack.</p>
+
+<h2 id="performance">Performance</h2>
+<p>In order for the controller to function correctly, the position and velocity errors must accurately reflect the current state of the system. Since forward kinematics is used to estimate the current end-effector position, I did some testing to see how accurate this estimate is. For my testing, I moved the end-effector to various points in the workspace and logged the estimated and actual end-effector positions (actual position estimated using apriltags).</p>
+<center><img src="http://localhost:4000/media/fk_apriltag_scatter.png" width="500" /></center>
+<p>While there is some error as the end-effector moves towards the bounds of the workspace, the forward kinematics estimate is accurate enough for the application. In addition to testing the forward kinematics estimate, I also generated some movement plots to see how well the end-effector is following straight-line trajectories at different speeds.</p>
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/ff_waypoints_traj25.png" width="400" />
+    <p>0.25 m/s</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/ff_waypoints_traj5.png" width="400" />
+    <p>0.5 m/s</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/ff_waypoints_traj1.png" width="400" />
+    <p>1 m/s</p>
+  </div>
+</div>
+
+<!-- Row of 2 -->
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/ff_waypoints_traj15.png" width="400" />
+    <p>1.5 m/s</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/ff_waypoints_traj2.png" width="400" />
+    <p>2 m/s</p>
+  </div>
+</div>
 
 <h2 id="next-steps">Next Steps</h2>
-<p>As of 6/8/25, I have finished working on the project in the spring quarter and I will resume working on this project when I return for the fall quarter - starting with work on the necessary software.</p>
+<p>As of 12/7/25, I am actively prepping for testing in water and wrapping up this project.</p>
 
 </div>
   </main>
