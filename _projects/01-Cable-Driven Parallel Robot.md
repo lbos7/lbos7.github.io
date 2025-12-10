@@ -1,11 +1,11 @@
 ---
-name: Cable-Driven Parallel Robot from Scratch (In Progress)
+name: Cable-Driven Parallel Robot from Scratch
 tools: [ROS 2, C++, Python, Onshape, Rapid Prototyping, Mechatronics, Microcontrollers]
 image: https://lbos7.github.io/media/cdpr.gif
 description: Designed and built a planar cable-driven parallel robot capable of operating while submerged in water
 ---
 
-# Cable-Driven Parallel Robot from Scratch (In Progress)
+# Cable-Driven Parallel Robot from Scratch
 This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable operation while submerged in water, my primary focus to date has been establishing a fully functional prototype in normal conditions. I have recently began preparing to begin testing in water.
 <br>
 
@@ -43,7 +43,7 @@ Before designing this robot, I had two main constraints/clarifications for this 
 - This robot will eventually need to be scaled up and operate underwater, so the design should take these conditions into account
 
 
-With these in mind, I decided on using 4 cables since that would allow for the control of 3 degrees of freedom, just in case the robot use case is altered in the future and control over orientation is necessary. I also added the motors, drivers, and other electronics on the top of robot, so I am able to make minimal changes before I am able to test this design in water. Also, since the frame is made from 8020 extrusion, if the design needs to be scaled up or down, only the necessary rails would need to be changed. The CAD model and physical system for the current design are shown below.
+With these in mind, I decided on using 4 cables since that would allow for the control of 3 degrees of freedom, just in case the robot use case is altered in the future and control over orientation is necessary. I also added the motors, drivers, and other electronics on the top of robot, so I am able to make minimal changes before I am able to test this design in water. Also, since the frame is made from 8020 extrusion, if the design needs to be scaled up or down, only the necessary rails would need to be changed.
 <br>
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="{{ site.url }}{{ site.baseurl }}/media/cpdr_CAD.png" width="350"/>
@@ -96,6 +96,30 @@ While there is some error as the end-effector moves towards the bounds of the wo
   </div>
 </div>
 
+## Testing in Water
+<div style="text-align: center;">
+  <img src="{{ site.url }}{{ site.baseurl }}/media/water_cdpr.gif" width="600"/>
+  <p>Movement while submerged</p>
+</div>
 
-## Next Steps
-As of 12/7/25, I am actively prepping for testing in water and wrapping up this project.
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/water_frame.jpg" width="400"/>
+    <p>Updated design with watertight enclosures</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/water_setup.jpg" width="400"/>
+    <p>Testing setup</p>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/power_enclosure.jpg" width="400"/>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/new_enclosures.jpg" width="325"/>
+  </div>
+</div>

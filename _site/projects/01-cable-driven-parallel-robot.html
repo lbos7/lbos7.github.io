@@ -21,11 +21,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Cable-Driven Parallel Robot from Scratch (In Progress)">
+  <meta property="og:title" content="Cable-Driven Parallel Robot from Scratch">
   <meta property="og:description" content="Designed and built a planar cable-driven parallel robot capable of operating while submerged in water">
   <meta property="og:image" content="https://lbos7.github.io/media/cdpr.gif">
 
-  <title>Cable-Driven Parallel Robot from Scratch (In Progress)</title>
+  <title>Cable-Driven Parallel Robot from Scratch</title>
   <meta name="description" content="Designed and built a planar cable-driven parallel robot capable of operating while submerged in water">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
@@ -74,7 +74,7 @@
 
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
-  <h1 id="cable-driven-parallel-robot-from-scratch-in-progress">Cable-Driven Parallel Robot from Scratch (In Progress)</h1>
+  <h1 id="cable-driven-parallel-robot-from-scratch">Cable-Driven Parallel Robot from Scratch</h1>
 <p>This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable operation while submerged in water, my primary focus to date has been establishing a fully functional prototype in normal conditions. I have recently began preparing to begin testing in water.
 <br /></p>
 
@@ -113,7 +113,7 @@
   <li>This robot will eventually need to be scaled up and operate underwater, so the design should take these conditions into account</li>
 </ul>
 
-<p>With these in mind, I decided on using 4 cables since that would allow for the control of 3 degrees of freedom, just in case the robot use case is altered in the future and control over orientation is necessary. I also added the motors, drivers, and other electronics on the top of robot, so I am able to make minimal changes before I am able to test this design in water. Also, since the frame is made from 8020 extrusion, if the design needs to be scaled up or down, only the necessary rails would need to be changed. The CAD model and physical system for the current design are shown below.
+<p>With these in mind, I decided on using 4 cables since that would allow for the control of 3 degrees of freedom, just in case the robot use case is altered in the future and control over orientation is necessary. I also added the motors, drivers, and other electronics on the top of robot, so I am able to make minimal changes before I am able to test this design in water. Also, since the frame is made from 8020 extrusion, if the design needs to be scaled up or down, only the necessary rails would need to be changed.
 <br /></p>
 <div style="display: flex; justify-content: center; gap: 20px;">
   <img src="http://localhost:4000/media/cpdr_CAD.png" width="350" />
@@ -166,8 +166,33 @@
   </div>
 </div>
 
-<h2 id="next-steps">Next Steps</h2>
-<p>As of 12/7/25, I am actively prepping for testing in water and wrapping up this project.</p>
+<h2 id="testing-in-water">Testing in Water</h2>
+<div style="text-align: center;">
+  <img src="http://localhost:4000/media/water_cdpr.gif" width="600" />
+  <p>Movement while submerged</p>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/water_frame.jpg" width="400" />
+    <p>Updated design with watertight enclosures</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/water_setup.jpg" width="400" />
+    <p>Testing setup</p>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/power_enclosure.jpg" width="400" />
+  </div>
+
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/new_enclosures.jpg" width="325" />
+  </div>
+</div>
 
 </div>
   </main>
