@@ -6,7 +6,7 @@ description: Designed and built a planar cable-driven parallel robot from scratc
 ---
 
 # Cable-Driven Parallel Robot for Submerged Applications
-This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable operation while submerged in water, my primary focus to date has been establishing a fully functional prototype in normal conditions. I have recently began preparing to begin testing in water.
+This project serves as my final project for the MS in Robotics program at Northwestern University. The overall goal was to build and develop software for a system capable of reliable operation while submerged in water. I designed and built the system for 7 weeks from late April to early June, worked on software and controls for 8 weeks from mid September to mid November, and modified the design for testing in water for 3 weeks from mid November to mid January.
 <p class="text-center">
 {% include elements/button.html link="https://github.com/lbos7/planar-cdpr" text="GitHub Repo" %}
 </p>
@@ -107,25 +107,62 @@ While there is some error as the end-effector moves towards the bounds of the wo
   <img src="{{ site.url }}{{ site.baseurl }}/media/water_cdpr.gif" width="600"/>
   <p>Movement while submerged</p>
 </div>
+<br>
+Before testing in water, modifications were made to the design to protect the electronics from being damaged. Watertight enclosures were purchased and machined to accomodate all of the wiring necessary to connect the electronics. Also, the power supply was moved off of the robot frame where AC power from the wall outlet does not have to be as close to the water and the 24V, GND, and CAN cables can be plugged into their respective connectors on the frame.
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/new_enclosures.jpg" width="325"/>
+    <p>Watertight Enclosures on the Robot Frame</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/power_enclosure.jpg" width="400"/>
+    <p>Watertight Enclosure for Power Supply</p>
+  </div>
+</div>
+<br>
+In addition to these changes, another frame was added to the bottom of the system to increase the height by 8 inches since the Northwestern University Olympic pool (where the testing was being completed) had a minimum water height of 4 feet 2 inches and the workspace frame was a little too short.
 
 <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
   <div style="text-align: center;">
     <img src="{{ site.url }}{{ site.baseurl }}/media/water_frame.jpg" width="400"/>
-    <p>Updated design with watertight enclosures</p>
+    <p>Updated Design with Watertight Enclosure and New Frame</p>
   </div>
 
   <div style="text-align: center;">
     <img src="{{ site.url }}{{ site.baseurl }}/media/water_setup.jpg" width="400"/>
-    <p>Testing setup</p>
+    <p>Testing Setup</p>
   </div>
 </div>
 
-<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+## Water Performance
+In order to compare how well the robot works while submerged, I completed the same waypoint tests as I did previously (results shown below). Overall, the results did not differ very much at all. This could be due to the small size of the end-effector, the motors being more powerful than necessary, or a combination of both. Either way, the results show that my design can serve it's intended purpose of operating while submerged in water and has room to increase the end-effector size if necessary.
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
   <div style="text-align: center;">
-    <img src="{{ site.url }}{{ site.baseurl }}/media/power_enclosure.jpg" width="400"/>
+    <img src="{{ site.url }}{{ site.baseurl }}/media/water_waypoints5.png" width="400"/>
+    <p>0.25 m/s</p>
   </div>
 
   <div style="text-align: center;">
-    <img src="{{ site.url }}{{ site.baseurl }}/media/new_enclosures.jpg" width="325"/>
+    <img src="{{ site.url }}{{ site.baseurl }}/media/water_waypoints5.png" width="400"/>
+    <p>0.5 m/s</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/water_waypoints1.png" width="400"/>
+    <p>1 m/s</p>
+  </div>
+</div>
+
+<!-- Row of 2 -->
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/water_waypoints15.png" width="400"/>
+    <p>1.5 m/s</p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/water_waypoints2.png" width="400"/>
+    <p>2 m/s</p>
   </div>
 </div>
