@@ -1,6 +1,6 @@
 ---
 name: Cable-Driven Parallel Robot for Submerged Applications
-tools: [ROS 2, C++, Python, Onshape, Rapid Prototyping, Mechatronics, Microcontrollers]
+tools: [C++, Python, Onshape, Rapid Prototyping, Mechatronics, Microcontrollers]
 image: https://lbos7.github.io/media/water_cdpr.gif
 description: Designed and built a planar cable-driven parallel robot from scratch capable of operating while submerged in water
 ---
