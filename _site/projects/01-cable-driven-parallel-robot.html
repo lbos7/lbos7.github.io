@@ -21,12 +21,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Cable-Driven Parallel Robot from Scratch">
-  <meta property="og:description" content="Designed and built a planar cable-driven parallel robot capable of operating while submerged in water">
-  <meta property="og:image" content="https://lbos7.github.io/media/cdpr.gif">
+  <meta property="og:title" content="Cable-Driven Parallel Robot for Submerged Applications">
+  <meta property="og:description" content="Designed and built a planar cable-driven parallel robot from scratch capable of operating while submerged in water">
+  <meta property="og:image" content="https://lbos7.github.io/media/water_cdpr.gif">
 
-  <title>Cable-Driven Parallel Robot from Scratch</title>
-  <meta name="description" content="Designed and built a planar cable-driven parallel robot capable of operating while submerged in water">
+  <title>Cable-Driven Parallel Robot for Submerged Applications</title>
+  <meta name="description" content="Designed and built a planar cable-driven parallel robot from scratch capable of operating while submerged in water">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -74,9 +74,13 @@
 
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
-  <h1 id="cable-driven-parallel-robot-from-scratch">Cable-Driven Parallel Robot from Scratch</h1>
-<p>This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable operation while submerged in water, my primary focus to date has been establishing a fully functional prototype in normal conditions. I have recently began preparing to begin testing in water.
-<br /></p>
+  <h1 id="cable-driven-parallel-robot-for-submerged-applications">Cable-Driven Parallel Robot for Submerged Applications</h1>
+<p>This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable operation while submerged in water, my primary focus to date has been establishing a fully functional prototype in normal conditions. I have recently began preparing to begin testing in water.</p>
+<p class="text-center">
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/lbos7/planar-cdpr">
+  GitHub Repo
+</a>
+</p>
 
 <h2 id="demo">Demo</h2>
 <!-- <center><iframe width="818" height="779" src="https://www.youtube.com/embed/73dWy-ku6m4" title="CPDR Basic Move" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center> -->
@@ -116,8 +120,12 @@
 <p>With these in mind, I decided on using 4 cables since that would allow for the control of 3 degrees of freedom, just in case the robot use case is altered in the future and control over orientation is necessary. I also added the motors, drivers, and other electronics on the top of robot, so I am able to make minimal changes before I am able to test this design in water. Also, since the frame is made from 8020 extrusion, if the design needs to be scaled up or down, only the necessary rails would need to be changed.
 <br /></p>
 <div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="http://localhost:4000/media/cpdr_CAD.png" width="350" />
-  <img src="http://localhost:4000/media/cpdr_assembled.jpg" width="400" />
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/cpdr_CAD.png" width="390" />
+  </div>
+  <div style="text-align: center;">
+    <img src="http://localhost:4000/media/cpdr_assembled.jpg" width="400" />
+  </div>
 </div>
 <p>In terms of modeling, the main components of interest of this design are the motor-drum asseblies that are used for winding and unwinding the cables. The drums are threaded, which allows for predictable winding and unwinding of the cables. These drums have heat-set inserts that are used to mount the shaft collars, which then secure the drums to the shafts that are coupled with the motors.</p>
 <center><img src="http://localhost:4000/media/drum_winding.gif" width="700" /></center>

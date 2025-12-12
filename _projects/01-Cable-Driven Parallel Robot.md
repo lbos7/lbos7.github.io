@@ -1,13 +1,15 @@
 ---
-name: Cable-Driven Parallel Robot from Scratch
+name: Cable-Driven Parallel Robot for Submerged Applications
 tools: [ROS 2, C++, Python, Onshape, Rapid Prototyping, Mechatronics, Microcontrollers]
-image: https://lbos7.github.io/media/cdpr.gif
-description: Designed and built a planar cable-driven parallel robot capable of operating while submerged in water
+image: https://lbos7.github.io/media/water_cdpr.gif
+description: Designed and built a planar cable-driven parallel robot from scratch capable of operating while submerged in water
 ---
 
-# Cable-Driven Parallel Robot from Scratch
+# Cable-Driven Parallel Robot for Submerged Applications
 This project serves as my final project for the MS in Robotics program at Northwestern University. While the long-term objective is to develop a system capable of reliable operation while submerged in water, my primary focus to date has been establishing a fully functional prototype in normal conditions. I have recently began preparing to begin testing in water.
-<br>
+<p class="text-center">
+{% include elements/button.html link="https://github.com/lbos7/planar-cdpr" text="GitHub Repo" %}
+</p>
 
 ## Demo
 <!-- <center><iframe width="818" height="779" src="https://www.youtube.com/embed/73dWy-ku6m4" title="CPDR Basic Move" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center> -->
@@ -46,8 +48,12 @@ Before designing this robot, I had two main constraints/clarifications for this 
 With these in mind, I decided on using 4 cables since that would allow for the control of 3 degrees of freedom, just in case the robot use case is altered in the future and control over orientation is necessary. I also added the motors, drivers, and other electronics on the top of robot, so I am able to make minimal changes before I am able to test this design in water. Also, since the frame is made from 8020 extrusion, if the design needs to be scaled up or down, only the necessary rails would need to be changed.
 <br>
 <div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="{{ site.url }}{{ site.baseurl }}/media/cpdr_CAD.png" width="350"/>
-  <img src="{{ site.url }}{{ site.baseurl }}/media/cpdr_assembled.jpg" width="400"/>
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/cpdr_CAD.png" width="390"/>
+  </div>
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/media/cpdr_assembled.jpg" width="400"/>
+  </div>
 </div>
 In terms of modeling, the main components of interest of this design are the motor-drum asseblies that are used for winding and unwinding the cables. The drums are threaded, which allows for predictable winding and unwinding of the cables. These drums have heat-set inserts that are used to mount the shaft collars, which then secure the drums to the shafts that are coupled with the motors.
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/drum_winding.gif" width="700"/></center>
