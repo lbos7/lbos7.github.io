@@ -61,7 +61,7 @@ In terms of modeling, the main components of interest of this design are the mot
 
 ## Control System
 To move the end-effector while keeping the cables in tension, a custom force-based controller was designed and tuned (block diagram shown below).
-<center><img src="{{ site.url }}{{ site.baseurl }}/media/detailed_block_diagram.png" width="700"/></center>
+<center><img src="{{ site.url }}{{ site.baseurl }}/media/cdpr_block_diagram.png" width="700"/></center>
 In this control system, position and velocity errors generate a 2D force in the workspace plane, which is then broken down into the 4 specific cable contributions. The tensions from the PID controller are added to estimated tensions from a feedforward model that estimates the tensions based on end-effector position. The sums of the PID and feedforward tensions are converted to torques and sent to the ODrive controller (shown below).
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/odrive_controller.png" width="700"/></center>
 One of the main motivations for designing the force-based controller is that it makes it easier to keep the cables in tension when the motors are in torque control mode. Another route that could have been taken would have been to operate the motors in position control mode while also sending velocity and torque feedforward commands, but this would likely require a tension distribution algorithm to prevent the cables from having slack.
