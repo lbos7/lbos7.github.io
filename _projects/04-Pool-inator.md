@@ -1,12 +1,12 @@
 ---
-name: 7-DOF Pool Playing Robot
+name: 7-DOF Pool-Playing Robot
 tools: [ROS 2, Python, MoveIt, OpenCV]
 image: https://lbos7.github.io/media/poolinator.gif
 description: ROS 2 Package to play a game of pool using an Emika Franka Panda arm and a tabletop pool set
 ---
 
-# Pool-inator
-For a final project in Northwestern University's ME 495: Embedded Systems in Robotics, my group decided on the goal of using a 7 DOF robotic arm to play pool on a tabletop pool set in order to showcase the various skills gained using ROS 2 throughout this course.
+# 7-DOF Pool-Playing Robot
+For a final project in Northwestern University's ME 495: Embedded Systems in Robotics, my group decided on the goal of using a 7-DOF robotic arm to play pool on a tabletop pool set in order to showcase the various skills gained using ROS 2 throughout this course.
 <br>
 <center><img src="{{ site.url }}{{ site.baseurl }}/media/franka.jpg"/></center>
 <p class="text-center">
